@@ -1,112 +1,3187 @@
 [
     {
-        "id": "01",
-        "question" : "Which of the following is the correct name of React.js?",
-        "options": [
-            "React",
-            "React.js",
-            "ReactJS",
-            "All of the above"
-        ],
-        "answer": "All of the above"
+      "id": "01",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function sayHi() { ",
+        "  console.log(name);",
+        "  console.log(age);",
+        "  var name = \"Lydia\";",
+        "  let age = 21;",
+        "}",
+        "",
+        "sayHi();"
+      ],
+      "options": [
+        "A: 'Lydia' и 'undefined'",
+        "B: 'Lydia' и 'ReferenceError'",
+        "C: 'ReferenceError' и '21'",
+        "D: 'undefined' и 'ReferenceError'"
+      ],
+      "answer": "D: 'undefined' и 'ReferenceError'",
+      "desc": "Внутри функции сначала выводится undefined, так как var объявляет переменную, но она инициализируется позже. Ошибка ReferenceError возникает из-за того, что let находится в 'мертвой зоне' до своей инициализации."
     },
     {
-        "id": "02",
-        "question" : "Which of the following are the advantages of React.js?",
-        "options": [
-            "React.js can increase the application's performance with Virtual DOM.",
-            "React.js is easy to integrate with other frameworks such as Angular, BackboneJS since it is only a view library.",
-            "React.js can render both on client and server side.",
-            "All of the above"
-        ],
-        "answer": "All of the above"
+      "id": "02",
+      "question": "Что будет в консоли?",
+      "code": [
+        "for (var i = 0; i < 3; i++) {",
+        "  setTimeout(() => console.log(i), 1);",
+        "}",
+        "",
+        "for (let i = 0; i < 3; i++) {",
+        "  setTimeout(() => console.log(i), 1);",
+        "}"
+      ],
+      "options": [
+        "A: '0 1 2' и '0 1 2'",
+        "B: '0 1 2' и '3 3 3'",
+        "C: '3 3 3' и '0 1 2'"
+      ],
+      "answer": "C: '3 3 3' и '0 1 2'",
+      "desc": "Из-за особенностей var и let. Var имеет функциональную область видимости, поэтому все вызовы setTimeout видят одно и то же значение i, равное 3. В случае let переменная инициализируется заново на каждой итерации."
     },
     {
-        "id": "03",
-        "question" : "Which of the following is not a disadvantage of React.js?",
-        "options": [
-            "React.js has only a view layer. We have put your code for Ajax requests, events and so on.",
-            "The library of React.js is pretty large.",
-            "The JSX in React.js makes code easy to read and write.",
-            "The learning curve can be steep in React.js."
-        ],
-        "answer": "The JSX in React.js makes code easy to read and write."
+      "id": "03",
+      "question": "Что будет в консоли?",
+      "code": [
+        "const shape = {",
+        "  radius: 10,",
+        "  diameter() {",
+        "    return this.radius * 2;",
+        "  },",
+        "  perimeter: () => 2 * Math.PI * this.radius",
+        "};",
+        "",
+        "console.log(shape.diameter());",
+        "console.log(shape.perimeter());"
+      ],
+      "options": [
+        "A: '20' и '62.83185307179586'",
+        "B: '20' и 'NaN'",
+        "C: '20' и '63'",
+        "D: 'NaN' и '63'"
+      ],
+      "answer": "B: '20' и 'NaN'",
+      "desc": "Функция diameter использует обычное this, поэтому корректно возвращает 20. Стрелочная функция perimeter захватывает внешнее значение this, которое не имеет свойства radius, что приводит к NaN."
     },
     {
-        "id": "04",
-        "question" : "Which of the following command is used to install create-react-app?",
-        "options": [
-            "npm install -g create-react-app",
-            "npx create-react-app my-app",
-            "npm install create-react-app",
-            "npm install -f create-react-app"
-        ],
-        "answer": "npx create-react-app my-app"
+      "id": "04",
+      "question": "Что будет в консоли?",
+      "code": [
+        "+true;",
+        "!'Lydia';"
+      ],
+      "options": [
+        "A: '1' и 'false'",
+        "B: 'false' и 'NaN'",
+        "C: 'false' и 'false'"
+      ],
+      "answer": "A: '1' и 'false'",
+      "desc": "Унарный плюс приводит true к 1. Оператор ! перед строкой 'Lydia' проверяет ее на истинность, и так как строка непустая (истинная), результат будет false."
     },
     {
-        "id": "05",
-        "question" : "What of the following is used in React.js to increase performance?",
-        "options": [
-            "Original DOM",
-            "Virtual DOM",
-            "Both A and B.",
-            "None of the above."
-        ],
-        "answer": "Virtual DOM"
+      "id": "05",
+      "question": "Что НЕ является валидным?",
+      "code": [
+        "const bird = {",
+        "  size: 'small'",
+        "};",
+        "",
+        "const mouse = {",
+        "  name: 'Mickey',",
+        "  small: true",
+        "};"
+      ],
+      "options": [
+        "A: 'mouse.bird.size'",
+        "B: 'mouse[bird.size]'",
+        "C: 'mouse[bird[\"size\"]]'",
+        "D: 'Все варианты валидны'"
+      ],
+      "answer": "A: 'mouse.bird.size'",
+      "desc": "В JavaScript ключи объектов — это строки. Использование точечной нотации для доступа к несуществующему свойству mouse.bird приводит к ошибке, так как mouse.bird — undefined."
     },
     {
-        "id": "06",
-        "question" : "What is the default port where webpack-server runs?",
-        "options": [
-            "3000",
-            "8080",
-            "3030",
-            "6060"
-        ],
-        "answer": "3000"
+      "id": "06",
+      "question": "Что будет в консоли?",
+      "code": [
+        "let c = { greeting: 'Hey!' };",
+        "let d;",
+        "",
+        "d = c;",
+        "c.greeting = 'Hello';",
+        "console.log(d.greeting);"
+      ],
+      "options": [
+        "A: 'Hello'",
+        "B: 'Hey!'",
+        "C: 'undefined'",
+        "D: 'ReferenceError'",
+        "E: 'TypeError'"
+      ],
+      "answer": "A: 'Hello'",
+      "desc": "Объекты в JavaScript являются ссылочными типами данных. Переменные c и d указывают на один и тот же объект, поэтому изменение свойства через c изменит его и для d."
     },
     {
-        "id": "07",
-        "question" : "How many numbers of elements a valid react component can return?",
-        "options": [
-            "1",
-            "2",
-            "3",
-            "Unlimited"
-        ],
-        "answer": "1"
+      "id": "07",
+      "question": "Что будет в консоли?",
+      "code": [
+        "let a = 3;",
+        "let b = new Number(3);",
+        "let c = 3;",
+        "",
+        "console.log(a == b);",
+        "console.log(a === b);",
+        "console.log(b === c);"
+      ],
+      "options": [
+        "A: 'true' 'false' 'true'",
+        "B: 'false' 'false' 'true'",
+        "C: 'true' 'false' 'false'",
+        "D: 'false' 'true' 'true'"
+      ],
+      "answer": "C: 'true' 'false' 'false'",
+      "desc": "Оператор == проверяет равенство значений, поэтому возвращает true для a == b. Оператор === требует совпадения типов, но b является объектом, а a и c — числами, поэтому возвращаются false."
     },
     {
-        "id": "08",
-        "question" : "What is the declarative way to render a dynamic list of components based on values in an array?",
-        "options": [
-            "Using the reduce array method",
-            "Using the <Each /> component",
-            "Using the Array.map() method",
-            "With a for/while loop"
-        ],
-        "answer": "Using the Array.map() method"
+      "id": "08",
+      "question": "Каким будет результат?",
+      "code": [
+        "class Chameleon {",
+        "  static colorChange(newColor) {",
+        "    this.newColor = newColor;",
+        "    return this.newColor;",
+        "  }",
+        "",
+        "  constructor({ newColor = 'green' } = {}) {",
+        "    this.newColor = newColor;",
+        "  }",
+        "}",
+        "",
+        "const freddie = new Chameleon({ newColor: 'purple' });",
+        "freddie.colorChange('orange');"
+      ],
+      "options": [
+        "A: 'orange'",
+        "B: 'purple'",
+        "C: 'green'",
+        "D: 'TypeError'"
+      ],
+      "answer": "D: 'TypeError'",
+      "desc": "Метод colorChange статический, и его нельзя вызывать на экземпляре класса. Попытка вызова freddie.colorChange вызывает TypeError."
     },
     {
-        "id": "09",
-        "question" : "What is a state in React?",
-        "options": [
-            "A permanent storage.",
-            "Internal storage of the component.",
-            "External storage of the component.",
-            "None of the above."
-        ],
-        "answer": "Internal storage of the component."
+      "id": "09",
+      "question": "Что будет в консоли?",
+      "code": [
+        "let greeting;",
+        "greetign = {}; // Опечатка!",
+        "console.log(greetign);"
+      ],
+      "options": [
+        "A: '{}'",
+        "B: 'ReferenceError: greetign is not defined'",
+        "C: 'undefined'"
+      ],
+      "answer": "A: '{}'",
+      "desc": "JS создаёт переменную greetign в глобальной области видимости, так как 'use strict' не используется. Поэтому выводится пустой объект."
     },
     {
-        "id": "10",
-        "question" : "What are the two ways to handle data in React?",
-        "options": [
-            "State & Props",
-            "Services & Components",
-            "State & Services",
-            "State & Component"
-        ],
-        "answer": "State & Props"
+      "id": "10",
+      "question": "Что произойдет?",
+      "code": [
+        "function bark() {",
+        "  console.log('Woof!');",
+        "}",
+        "",
+        "bark.animal = 'dog';"
+      ],
+      "options": [
+        "A: 'Ничего, всё в порядке!'",
+        "B: 'SyntaxError. Нельзя добавлять свойства функциям таким способом.'",
+        "C: 'undefined'",
+        "D: 'ReferenceError'"
+      ],
+      "answer": "A: 'Ничего, всё в порядке!'",
+      "desc": "Функции в JavaScript являются объектами, и можно добавлять к ним свойства. Свойство bark.animal можно добавить, и ошибок не будет."
+    },
+    {
+      "id": "11",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function Person(firstName, lastName) {",
+        "  this.firstName = firstName;",
+        "  this.lastName = lastName;",
+        "}",
+        "",
+        "const member = new Person('Lydia', 'Hallie');",
+        "Person.getFullName = function () {",
+        "  return `${this.firstName} ${this.lastName}`;",
+        "}",
+        "",
+        "console.log(member.getFullName());"
+      ],
+      "options": [
+        "A: 'TypeError'",
+        "B: 'SyntaxError'",
+        "C: 'Lydia Hallie'",
+        "D: 'undefined' 'undefined'"
+      ],
+      "answer": "A: 'TypeError'",
+      "desc": "Метод getFullName добавлен к самому объекту функции-конструктора Person, но он недоступен для экземпляров класса, поэтому member.getFullName вызывает TypeError."
+    },
+    {
+      "id": "12",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function Person(firstName, lastName) {",
+        "  this.firstName = firstName;",
+        "  this.lastName = lastName;",
+        "}",
+        "",
+        "const lydia = new Person('Lydia', 'Hallie');",
+        "const sarah = Person('Sarah', 'Smith');",
+        "",
+        "console.log(lydia);",
+        "console.log(sarah);"
+      ],
+      "options": [
+        "A: 'Person {firstName: \"Lydia\", lastName: \"Hallie\"}' и 'undefined'",
+        "B: 'Person {firstName: \"Lydia\", lastName: \"Hallie\"}' и 'Person {firstName: \"Sarah\", lastName: \"Smith\"}'",
+        "C: 'Person {firstName: \"Lydia\", lastName: \"Hallie\"}' и '{}'",
+        "D: 'Person {firstName: \"Lydia\", lastName: \"Hallie\"}' и 'ReferenceError'"
+      ],
+      "answer": "A: 'Person {firstName: \"Lydia\", lastName: \"Hallie\"}' и 'undefined'",
+      "desc": "Sarah не была создана через new, поэтому this в функции Person указывает на глобальный объект. Значения firstName и lastName задаются глобально, а переменная sarah остаётся undefined."
+    },
+    {
+      "id": "13",
+      "question": "Назовите три фазы распространения событий",
+      "options": [
+        "A: Цель > Захват > Всплытие",
+        "B: Всплытие > Цель > Захват",
+        "C: Цель > Всплытие > Захват",
+        "D: Захват > Цель > Всплытие"
+      ],
+      "answer": "D: Захват > Цель > Всплытие",
+      "desc": "В фазе захвата событие передаётся от родителя к цели. После достижения цели начинается фаза всплытия."
+    },
+    {
+      "id": "14",
+      "question": "Все объекты имеют прототипы?",
+      "options": [
+        "A: Да",
+        "B: Нет"
+      ],
+      "answer": "B: Нет",
+      "desc": "Базовый объект не имеет прототипа, все другие объекты в JavaScript имеют доступ к методам и свойствам через цепочку прототипов."
+    },
+    {
+      "id": "15",
+      "question": "Каким будет результат?",
+      "code": [
+        "function sum(a, b) {",
+        "  return a + b;",
+        "}",
+        "",
+        "sum(1, '2');"
+      ],
+      "options": [
+        "A: 'NaN'",
+        "B: 'TypeError'",
+        "C: '\"12\"'",
+        "D: '3'"
+      ],
+      "answer": "C: '\"12\"'",
+      "desc": "JavaScript неявно приводит число 1 к строке, поэтому происходит конкатенация строк, и результатом будет '12'."
+    },
+    {
+      "id": "16",
+      "question": "Что будет в консоли?",
+      "code": [
+        "let number = 0;",
+        "console.log(number++);",
+        "console.log(++number);",
+        "console.log(number);"
+      ],
+      "options": [
+        "A: '1' '1' '2'",
+        "B: '1' '2' '2'",
+        "C: '0' '2' '2'",
+        "D: '0' '1' '2'"
+      ],
+      "answer": "C: '0' '2' '2'",
+      "desc": "Постфиксный оператор сначала возвращает значение, а затем увеличивает его. Префиксный оператор сначала увеличивает значение, а затем возвращает его."
+    },
+    {
+      "id": "17",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function getPersonInfo(one, two, three) {",
+        "  console.log(one);",
+        "  console.log(two);",
+        "  console.log(three);",
+        "}",
+        "",
+        "const person = 'Lydia';",
+        "const age = 21;",
+        "",
+        "getPersonInfo`${person} is ${age} years old`;"
+      ],
+      "options": [
+        "A: '\"Lydia\"' '21' '[\"\", \" is \", \" years old\"]'",
+        "B: '[\"\", \" is \", \" years old\"]' '\"Lydia\"' '21'",
+        "C: '\"Lydia\"' '[\"\", \" is \", \" years old\"]' '21'"
+      ],
+      "answer": "B: '[\"\", \" is \", \" years old\"]' '\"Lydia\"' '21'",
+      "desc": "При использовании шаблонных строк первым аргументом передается массив строк, а остальные — это значения переменных."
+    },
+    {
+      "id": "18",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function checkAge(data) {",
+        "  if (data === { age: 18 }) {",
+        "    console.log('Ты взрослый!');",
+        "  } else if (data == { age: 18 }) {",
+        "    console.log('Ты все еще взрослый.');",
+        "  } else {",
+        "    console.log(`Хмм.. Кажется, у тебя нет возраста.`);",
+        "  }",
+        "}",
+        "",
+        "checkAge({ age: 18 });"
+      ],
+      "options": [
+        "A: 'Ты взрослый!'",
+        "B: 'Ты все еще взрослый.'",
+        "C: 'Хмм.. Кажется, у тебя нет возраста.'"
+      ],
+      "answer": "C: 'Хмм.. Кажется, у тебя нет возраста.'",
+      "desc": "Объекты сравниваются по ссылкам на область памяти, поэтому сравнения с объектами всегда вернут false, если это разные объекты."
+    },
+    {
+      "id": "19",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function getAge(...args) {",
+        "  console.log(typeof args);",
+        "}",
+        "",
+        "getAge(21);"
+      ],
+      "options": [
+        "A: '\"number\"'",
+        "B: '\"array\"'",
+        "C: '\"object\"'",
+        "D: '\"NaN\"'"
+      ],
+      "answer": "C: '\"object\"'",
+      "desc": "Оператор spread создает массив, а массивы в JavaScript имеют тип \"object\", поэтому typeof возвращает \"object\"."
+    },
+    {
+      "id": "20",
+      "question": "Что будет в консоли?",
+      "code": [
+        "function getAge() {",
+        "  'use strict';",
+        "  age = 21;",
+        "  console.log(age);",
+        "}",
+        "",
+        "getAge();"
+      ],
+      "options": [
+        "A: '21'",
+        "B: 'undefined'",
+        "C: 'ReferenceError'",
+        "D: 'TypeError'"
+      ],
+      "answer": "C: 'ReferenceError'",
+      "desc": "При использовании строгого режима (\"use strict\") нельзя объявлять переменные неявно. Если переменная не объявлена явно, будет выброшена ошибка ReferenceError."
+    },
+    {
+      "id": "21",
+      "question": "Чему будет равно sum?",
+      "code": [
+        "const sum = eval('10*10+5');"
+      ],
+      "options": [
+        "A: '105'",
+        "B: '\"105\"'",
+        "C: 'TypeError'",
+        "D: '\"10*10+5\"'"
+      ],
+      "answer": "A: '105'",
+      "desc": "Функция eval выполняет код, переданный в виде строки. В данном случае это арифметическое выражение '10*10+5', результатом которого будет 105."
+    },
+    {
+      "id": "22",
+      "question": "Как долго будет доступен cool_secret?",
+      "code": [
+        "sessionStorage.setItem('cool_secret', 123);"
+      ],
+      "options": [
+        "A: 'Всегда, данные не потеряются.'",
+        "B: 'Пока пользователь не закроет вкладку.'",
+        "C: 'Пока пользователь не закроет браузер, а не только вкладку.'",
+        "D: 'Пока пользователь не выключит компьютер.'"
+      ],
+      "answer": "B: 'Пока пользователь не закроет вкладку.'",
+      "desc": "Данные в sessionStorage удаляются после закрытия вкладки браузера."
+    },
+    {
+      "id": "23",
+      "question": "Что будет в консоли?",
+      "code": [
+        "var num = 8;",
+        "var num = 10;",
+        "",
+        "console.log(num);"
+      ],
+      "options": [
+        "A: '8'",
+        "B: '10'",
+        "C: 'SyntaxError'",
+        "D: 'ReferenceError'"
+      ],
+      "answer": "B: '10'",
+      "desc": "Переменные, объявленные с помощью var, можно переопределять. Последнее присвоенное значение – 10."
+    },
+    {
+      "id": "24",
+      "question": "Каким будет результат?",
+      "code": [
+        "const obj = { 1: 'a', 2: 'b', 3: 'c' };",
+        "const set = new Set([1, 2, 3, 4, 5]);",
+        "",
+        "obj.hasOwnProperty('1');",
+        "obj.hasOwnProperty(1);",
+        "set.has('1');",
+        "set.has(1);"
+      ],
+      "options": [
+        "A: 'false true false true'",
+        "B: 'false true true true'",
+        "C: 'true true false true'",
+        "D: 'true true true true'"
+      ],
+      "answer": "C: 'true true false true'",
+      "desc": "Ключи объекта преобразуются в строки, поэтому '1' и 1 эквивалентны в obj. В Set '1' и 1 не эквивалентны."
+    },
+    {
+      "id": "25",
+      "question": "Что будет в консоли?",
+      "code": [
+        "const obj = { a: 'one', b: 'two', a: 'three' };",
+        "console.log(obj);"
+      ],
+      "options": [
+        "A: '{ a: \"one\", b: \"two\" }'",
+        "B: '{ b: \"two\", a: \"three\" }'",
+        "C: '{ a: \"three\", b: \"two\" }'",
+        "D: 'SyntaxError'"
+      ],
+      "answer": "C: '{ a: \"three\", b: \"two\" }'",
+      "desc": "Повторяющийся ключ перезаписывает значение, последнее значение 'a' будет 'three'."
+    },
+    {
+      "id": "26",
+      "question": "Глобальный контекст исполнения создает две вещи: глобальный объект и this",
+      "options": [
+        "A: 'Да'",
+        "B: 'Нет'",
+        "C: 'Это зависит от...'"
+      ],
+      "answer": "A: 'Да'",
+      "desc": "Глобальный контекст выполнения всегда создает глобальный объект (в браузере это window) и связывает this с глобальным объектом."
+    },
+    {
+      "id": "27",
+      "question": "Что будет в консоли?",
+      "code": [
+        "for (let i = 1; i < 5; i++) {",
+        "  if (i === 3) continue;",
+        "  console.log(i);",
+        "}"
+      ],
+      "options": [
+        "A: '1 2'",
+        "B: '1 2 3'",
+        "C: '1 2 4'",
+        "D: '1 3 4'"
+      ],
+      "answer": "C: '1 2 4'",
+      "desc": "Оператор continue пропускает итерацию, когда i равно 3, поэтому 3 не выводится."
+    },
+    {
+      "id": "28",
+      "question": "Каким будет результат?",
+      "code": [
+        "String.prototype.giveLydiaPizza = () => {",
+        "  return 'Just give Lydia pizza already!';",
+        "};",
+        "",
+        "const name = 'Lydia';",
+        "",
+        "console.log(name.giveLydiaPizza());"
+      ],
+      "options": [
+        "A: '\"Just give Lydia pizza already!\"'",
+        "B: 'TypeError: not a function'",
+        "C: 'SyntaxError'",
+        "D: 'undefined'"
+      ],
+      "answer": "A: '\"Just give Lydia pizza already!\"'",
+      "desc": "Строки автоматически конвертируются в объекты String, поэтому метод, добавленный в прототип, доступен для всех строк."
+    },
+    {
+      "id": "29",
+      "question": "Что будет в консоли?",
+      "code": [
+        "const a = {};",
+        "const b = { key: 'b' };",
+        "const c = { key: 'c' };",
+        "",
+        "a[b] = 123;",
+        "a[c] = 456;",
+        "",
+        "console.log(a[b]);"
+      ],
+      "options": [
+        "A: '123'",
+        "B: '456'",
+        "C: 'undefined'",
+        "D: 'ReferenceError'"
+      ],
+      "answer": "B: '456'",
+      "desc": "Ключи объектов автоматически конвертируются в строки, поэтому a[b] и a[c] оба становятся a['[object Object]']."
+    },
+    {
+      "id": "30",
+      "question": "Каким будет результат?",
+      "code": [
+        "const foo = () => console.log('First');",
+        "const bar = () => setTimeout(() => console.log('Second'));",
+        "const baz = () => console.log('Third');",
+        "",
+        "bar();",
+        "foo();",
+        "baz();"
+      ],
+      "options": [
+        "A: 'First Second Third'",
+        "B: 'First Third Second'",
+        "C: 'Second First Third'",
+        "D: 'Second Third First'"
+      ],
+      "answer": "B: 'First Third Second'",
+      "desc": "setTimeout ставит коллбек в очередь, который выполнится только после завершения текущих задач, поэтому 'Second' выводится последним."
+    },
+    {
+      "id": "31",
+      "question": "Что будет в event.target после клика на кнопку?",
+      "code": [
+        "<div onclick=\"console.log('first div')\"><div onclick=\"console.log('second div')\"><button onclick=\"console.log('button')\">Кликни!</button></div></div>"
+      ],
+      "options": [
+        "A: Внешний div",
+        "B: Внутренний div",
+        "C: button",
+        "D: Массив со всеми вложенными элементами"
+      ],
+      "answer": "C",
+      "explanation": "Целью события является самый глубокий вложенный элемент. Остановить распространение событий можно с помощью event.stopPropagation."
+    },
+    {
+      "id": "32",
+      "question": "Что будет в консоли после клика по параграфу?",
+      "code": [
+        "<div onclick=\"console.log('div')\"><p onclick=\"console.log('p')\">Кликни меня!</p></div>"
+      ],
+      "options": [
+        "A: p div",
+        "B: div p",
+        "C: p",
+        "D: div"
+      ],
+      "answer": "A",
+      "explanation": "После клика по p будет выведено p и div. Всплытие идет с самого глубокого элемента вверх."
+    },
+    {
+      "id": "33",
+      "question": "Что будет в консоли?",
+      "code": [
+        "const person = { name: 'Lydia' }; function sayHi(age) { console.log(`${this.name} is ${age}`); } sayHi.call(person, 21); sayHi.bind(person, 21);"
+      ],
+      "options": [
+        "A: undefined is 21 Lydia is 21",
+        "B: function function",
+        "C: Lydia is 21 Lydia is 21",
+        "D: Lydia is 21 function"
+      ],
+      "answer": "D",
+      "explanation": "call выполняется сразу же, а bind возвращает копию функции с привязанным контекстом, но не выполняется незамедлительно."
+    },
+    {
+      "id": "34",
+      "question": "Каким будет результат?",
+      "code": [
+        "function sayHi() { return (() => 0)(); } console.log(typeof sayHi());"
+      ],
+      "options": [
+        "A: object",
+        "B: number",
+        "C: function",
+        "D: undefined"
+      ],
+      "answer": "B",
+      "explanation": "Функция sayHi возвращает 0, а typeof 0 возвращает number."
+    },
+    {
+      "id": "35",
+      "question": "Какие из этих значений являются \"ложными\"?",
+      "code": [
+        "0; new Number(0); (\"\"); (\" \"); new Boolean(false); undefined;"
+      ],
+      "options": [
+        "A: 0, '', undefined",
+        "B: 0, new Number(0), '', new Boolean(false), undefined",
+        "C: 0, '', new Boolean(false), undefined",
+        "D: Все являются \"ложными\""
+      ],
+      "answer": "A",
+      "explanation": "Ложными в JavaScript являются: 0, '', undefined, false, null, NaN."
+    },
+    {
+      "id": "36",
+      "question": "Что будет в консоли?",
+      "code": [
+        "console.log(typeof typeof 1);"
+      ],
+      "options": [
+        "A: number",
+        "B: string",
+        "C: object",
+        "D: undefined"
+      ],
+      "answer": "B",
+      "explanation": "typeof 1 возвращает 'number', а typeof 'number' возвращает 'string'."
+    },
+    {
+      "id": "37",
+      "question": "Что будет в консоли?",
+      "code": [
+        "const numbers = [1, 2, 3]; numbers[10] = 11; console.log(numbers);"
+      ],
+      "options": [
+        "A: [1, 2, 3, 7 x null, 11]",
+        "B: [1, 2, 3, 11]",
+        "C: [1, 2, 3, 7 x empty, 11]",
+        "D: SyntaxError"
+      ],
+      "answer": "C",
+      "explanation": "Добавление значения по индексу больше длины массива создает пустые ячейки с undefined, но они отображаются как empty."
+    },
+    {
+      "id": "38",
+      "question": "Что будет в консоли?",
+      "code": [
+        "(() => { let x, y; try { throw new Error(); } catch (x) { (x = 1), (y = 2); console.log(x); } console.log(x); console.log(y); })();"
+      ],
+      "options": [
+        "A: 1 undefined 2",
+        "B: undefined undefined undefined",
+        "C: 1 1 2",
+        "D: 1 undefined undefined"
+      ],
+      "answer": "A",
+      "explanation": "В catch блоке создается новая переменная x, локальная для catch, которая не влияет на внешнюю переменную x."
+    },
+    {
+      "id": "39",
+      "question": "Всё в JavaScript это...",
+      "code": [
+        ""
+      ],
+      "options": [
+        "A: примитив или объект",
+        "B: функция или объект",
+        "C: вопрос с подвохом! только объекты",
+        "D: число или объект"
+      ],
+      "answer": "A",
+      "explanation": "В JavaScript все делится на примитивы и объекты. Примитивы включают boolean, null, undefined, number, string, bigint, symbol."
+    },
+    {
+      "id": "40",
+      "question": "Каким будет результат?",
+      "code": [
+        "[[0, 1], [2, 3]].reduce(",
+        "  (acc, cur) => {",
+        "    return acc.concat(cur);",
+        "  },",
+        "  [1, 2]",
+        ");"
+      ],
+      "options": [
+        "A: [0, 1, 2, 3, 1, 2]",
+        "B: [6, 1, 2]",
+        "C: [1, 2, 0, 1, 2, 3]",
+        "D: [1, 2, 6]"
+      ],
+      "answer": "C",
+      "explanation": "[1, 2] - начальное значение acc. Первый cur = [0, 1], результат: [1, 2, 0, 1]. Второй cur = [2, 3], итог: [1, 2, 0, 1, 2, 3]."
+    },
+    {
+      "id": "41",
+      "question": "Каким будет результат?",
+      "code": [
+        "!!null;",
+        "!!'';",
+        "!!1;"
+      ],
+      "options": [
+        "A: false true false",
+        "B: false false true",
+        "C: false true true",
+        "D: true true false"
+      ],
+      "answer": "B",
+      "explanation": "null и '' являются ложными, !!null и !!'' дают false. 1 истинно, поэтому !!1 = true."
+    },
+    {
+      "id": "42",
+      "question": "Что возвращает метод setInterval в браузере?",
+      "code": [
+        "setInterval(() => console.log('Hi'), 1000);"
+      ],
+      "options": [
+        "A: уникальный id",
+        "B: указанное количество миллисекунд",
+        "C: переданную функцию",
+        "D: undefined"
+      ],
+      "answer": "A",
+      "explanation": "setInterval возвращает уникальный id, который можно использовать для очистки интервала через clearInterval()."
+    },
+    {
+      "id": "43",
+      "question": "Каким будет результат?",
+      "code": [
+        "[...'Lydia'];"
+      ],
+      "options": [
+        "A: ['L', 'y', 'd', 'i', 'a']",
+        "B: ['Lydia']",
+        "C: [[], 'Lydia']",
+        "D: [['L', 'y', 'd', 'i', 'a']]"
+      ],
+      "answer": "A",
+      "explanation": "Строки являются итерируемыми сущностями, поэтому оператор распространения превращает каждый символ строки в отдельный элемент массива."
+    },
+    {
+      "id": "44",
+      "question": "Каким будет результат?",
+      "code": [
+        "function* generator(i) {",
+        "  yield i;",
+        "  yield i * 2;",
+        "}",
+        "const gen = generator(10);",
+        "console.log(gen.next().value);",
+        "console.log(gen.next().value);"
+      ],
+      "options": [
+        "A: [0, 10], [10, 20]",
+        "B: 20, 20",
+        "C: 10, 20",
+        "D: 0, 10 and 10, 20"
+      ],
+      "answer": "C",
+      "explanation": "Функция генератор возвращает значения через ключевое слово yield: сначала 10, затем 10 * 2 = 20."
+    },
+    {
+      "id": "45",
+      "question": "Каким будет результат?",
+      "code": [
+        "const firstPromise = new Promise((res, rej) => {",
+        "  setTimeout(res, 500, 'один');",
+        "});",
+        "const secondPromise = new Promise((res, rej) => {",
+        "  setTimeout(res, 100, 'два');",
+        "});",
+        "Promise.race([firstPromise, secondPromise]).then(res => console.log(res));"
+      ],
+      "options": [
+        "A: 'один'",
+        "B: 'два'",
+        "C: 'два' 'один'",
+        "D: 'один' 'два'"
+      ],
+      "answer": "B",
+      "explanation": "Promise.race возвращает результат первого завершившегося промиса. Второй промис срабатывает быстрее (100 мс), его результат 'два'."
+    },
+    {
+      "id": "46",
+      "question": "Каким будет результат?",
+      "code": [
+        "let person = { name: 'Lydia' };",
+        "const members = [person];",
+        "person = null;",
+        "console.log(members);"
+      ],
+      "options": [
+        "A: null",
+        "B: [null]",
+        "C: [{}]",
+        "D: [{ name: 'Lydia' }]"
+      ],
+      "answer": "D",
+      "explanation": "Переменная person меняется на null, но массив members хранит ссылку на исходный объект { name: 'Lydia' }."
+    },
+    {
+      "id": "47",
+      "question": "Каким будет результат?",
+      "code": [
+        "const person = {",
+        "  name: 'Lydia',",
+        "  age: 21",
+        "};",
+        "for (const item in person) {",
+        "  console.log(item);",
+        "}"
+      ],
+      "options": [
+        "A: { name: 'Lydia' }, { age: 21 }",
+        "B: 'name', 'age'",
+        "C: 'Lydia', 21",
+        "D: ['name', 'Lydia'], ['age', 21]"
+      ],
+      "answer": "B",
+      "explanation": "Цикл for-in перебирает ключи объекта, выводятся ключи 'name' и 'age'."
+    },
+    {
+      "id": "48",
+      "question": "Каким будет результат?",
+      "code": [
+        "console.log(3 + 4 + '5');"
+      ],
+      "options": [
+        "A: '345'",
+        "B: '75'",
+        "C: 12",
+        "D: '12'"
+      ],
+      "answer": "B",
+      "explanation": "3 + 4 сначала оценивается как 7, затем 7 + '5' приводит к строковому соединению, результат: '75'."
+    },
+    {
+      "id": "49",
+      "question": "Какое значение num?",
+      "code": [
+        "const num = parseInt('7*6', 10);"
+      ],
+      "options": [
+        "A: 42",
+        "B: '42'",
+        "C: 7",
+        "D: NaN"
+      ],
+      "answer": "C",
+      "explanation": "parseInt останавливает разбор строки на символе '*', который не является числом, и возвращает 7."
+    },
+    {
+      "id": "50",
+      "question": "Каким будет результат?",
+      "code": [
+        "[1, 2, 3].map(num => {",
+        "  if (typeof num === 'number') return;",
+        "  return num * 2;",
+        "});"
+      ],
+      "options": [
+        "A: []",
+        "B: [null, null, null]",
+        "C: [undefined, undefined, undefined]",
+        "D: [3 x empty]"
+      ],
+      "answer": "C",
+      "explanation": "Функция map возвращает undefined, так как мы не возвращаем значений внутри блока if. Результат: [undefined, undefined, undefined]."
+    },
+    {
+      "id": "51",
+      "question": "Каким будет результат?",
+      "code": [
+        "function getInfo(member, year) {",
+        "  member.name = 'Lydia';",
+        "  year = 1998;",
+        "}",
+        "",
+        "const person = { name: 'Sarah' };",
+        "const birthYear = '1997';",
+        "",
+        "getInfo(person, birthYear);",
+        "",
+        "console.log(person, birthYear);"
+      ],
+      "options": [
+        "A: { name: 'Lydia' }, '1997'",
+        "B: { name: 'Sarah' }, '1998'",
+        "C: { name: 'Lydia' }, '1998'",
+        "D: { name: 'Sarah' }, '1997'"
+      ],
+      "answer": "A",
+      "explanation": "Аргументы передаются по значению, если их значение не является объектом, то они передаются по ссылке. Переменная birthYear передается по значению, а объект person передается по ссылке. Обновление свойства объекта влияет на исходный объект, но не на переменную birthYear."
+    },
+    {
+      "id": "52",
+      "question": "Каким будет результат?",
+      "code": [
+        "function greeting() {",
+        "  throw 'Hello world!';",
+        "}",
+        "",
+        "function sayHi() {",
+        "  try {",
+        "    const data = greeting();",
+        "    console.log('It worked!', data);",
+        "  } catch (e) {",
+        "    console.log('Oh no an error:', e);",
+        "  }",
+        "}",
+        "",
+        "sayHi();"
+      ],
+      "options": [
+        "A: It worked! Hello world!",
+        "B: Oh no an error: undefined",
+        "C: SyntaxError: can only throw Error objects",
+        "D: Oh no an error: Hello world!"
+      ],
+      "answer": "D",
+      "explanation": "С помощью оператора throw можно создавать собственные ошибки. Исключением может быть строка, число, логическое значение или объект. В данном случае исключение - строка 'Hello world'. Оператор catch обрабатывает исключение, выводя 'Oh no an error: Hello world!'."
+    },
+    {
+      "id": "53",
+      "question": "Каким будет результат?",
+      "code": [
+        "function Car() {",
+        "  this.make = 'Lamborghini';",
+        "  return { make: 'Maserati' };",
+        "}",
+        "",
+        "const myCar = new Car();",
+        "console.log(myCar.make);"
+      ],
+      "options": [
+        "A: 'Lamborghini'",
+        "B: 'Maserati'",
+        "C: ReferenceError",
+        "D: TypeError"
+      ],
+      "answer": "B",
+      "explanation": "Если функция-конструктор возвращает объект, то возвращаемый объект заменяет созданный с помощью new. В данном случае, возвращаемый объект { make: 'Maserati' } будет заменять стандартный объект, созданный с помощью new Car()."
+    },
+    {
+      "id": "54",
+      "question": "Каким будет результат?",
+      "code": [
+        "(() => {",
+        "  let x = (y = 10);",
+        "})();",
+        "",
+        "console.log(typeof x);",
+        "console.log(typeof y);"
+      ],
+      "options": [
+        "A: 'undefined', 'number'",
+        "B: 'number', 'number'",
+        "C: 'object', 'number'",
+        "D: 'number', 'undefined'"
+      ],
+      "answer": "A",
+      "explanation": "Переменная y объявляется глобально, а переменная x имеет блочную видимость. Поэтому x не определен вне блока функции, а y доступен глобально и имеет тип 'number'."
+    },
+    {
+      "id": "55",
+      "question": "Какой будет вывод?",
+      "code": [
+        "class Dog {",
+        "  constructor(name) {",
+        "    this.name = name;",
+        "  }",
+        "}",
+        "",
+        "Dog.prototype.bark = function() {",
+        "  console.log(`Woof I am ${this.name}`);",
+        "};",
+        "",
+        "const pet = new Dog('Mara');",
+        "",
+        "pet.bark();",
+        "",
+        "delete Dog.prototype.bark;",
+        "",
+        "pet.bark();"
+      ],
+      "options": [
+        "A: 'Woof I am Mara', TypeError",
+        "B: 'Woof I am Mara', 'Woof I am Mara'",
+        "C: 'Woof I am Mara', undefined",
+        "D: TypeError, TypeError"
+      ],
+      "answer": "A",
+      "explanation": "Удаление метода из прототипа делает его недоступным для экземпляров класса. После удаления метода bark из прототипа, попытка вызвать его приведет к TypeError."
+    },
+    {
+      "id": "56",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const set = new Set([1, 1, 2, 3, 4]);",
+        "",
+        "console.log(set);"
+      ],
+      "options": [
+        "A: [1, 1, 2, 3, 4]",
+        "B: [1, 2, 3, 4]",
+        "C: {1, 1, 2, 3, 4}",
+        "D: {1, 2, 3, 4}"
+      ],
+      "answer": "D",
+      "explanation": "Объект Set хранит уникальные значения. Повторяющиеся значения удаляются, оставляя только уникальные: {1, 2, 3, 4}."
+    },
+    {
+      "id": "57",
+      "question": "Какой будет вывод?",
+      "code": [
+        "// counter.js",
+        "let counter = 10;",
+        "export default counter;",
+        "",
+        "// index.js",
+        "import myCounter from './counter';",
+        "",
+        "myCounter += 1;",
+        "",
+        "console.log(myCounter);"
+      ],
+      "options": [
+        "A: 10",
+        "B: 11",
+        "C: Error",
+        "D: NaN"
+      ],
+      "answer": "C",
+      "explanation": "Импортированные модули являются доступными только для чтения. Попытка изменить значение приведет к ошибке."
+    },
+    {
+      "id": "58",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const name = 'Lydia';",
+        "age = 21;",
+        "",
+        "console.log(delete name);",
+        "console.log(delete age);"
+      ],
+      "options": [
+        "A: false, true",
+        "B: 'Lydia', 21",
+        "C: true, true",
+        "D: undefined, undefined"
+      ],
+      "answer": "A",
+      "explanation": "Переменные, объявленные с var, const или let, не могут быть удалены с помощью delete. Однако свойства, добавленные к глобальному объекту, могут быть удалены. Таким образом, delete name возвращает false, а delete age возвращает true."
+    },
+    {
+      "id": "59",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const numbers = [1, 2, 3, 4, 5];",
+        "const [y] = numbers;",
+        "",
+        "console.log(y);"
+      ],
+      "options": [
+        "A: [[1, 2, 3, 4, 5]]",
+        "B: [1, 2, 3, 4, 5]",
+        "C: 1",
+        "D: [1]"
+      ],
+      "answer": "C",
+      "explanation": "Деструктуризация присваивает первый элемент массива переменной y. Таким образом, y будет равно 1."
+    },
+    {
+      "id": "60",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const user = { name: 'Lydia', age: 21 };",
+        "const admin = { admin: true, ...user };",
+        "",
+        "console.log(admin);"
+      ],
+      "options": [
+        "A: { admin: true, user: { name: 'Lydia', age: 21 } }",
+        "B: { admin: true, name: 'Lydia', age: 21 }",
+        "C: { admin: true, user: ['Lydia', 21] }",
+        "D: { admin: true }"
+      ],
+      "answer": "B",
+      "explanation": "Оператор распространения ... копирует свойства из объекта user в новый объект admin. Результат будет { admin: true, name: 'Lydia', age: 21 }."
+    },
+    {
+      "id": "61",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const person = { name: 'Lydia' };",
+        "",
+        "Object.defineProperty(person, 'age', { value: 21 });",
+        "",
+        "console.log(person);",
+        "console.log(Object.keys(person));"
+      ],
+      "options": {
+        "A": "{ name: 'Lydia', age: 21 }`, `['name', 'age']",
+        "B": "{ name: 'Lydia', age: 21 }`, `['name']",
+        "C": "{ name: 'Lydia'}`, `['name', 'age']",
+        "D": "{ name: 'Lydia'}`, `['age']"
+      },
+      "correctAnswer": "B",
+      "explanation": "С помощью метода `defineProperty` мы можем добавлять новые свойства к объекту или изменять существующие. Когда мы добавляем свойство к объекту с помощью метода `defineProperty`, они по умолчанию _не перечисляемые_. Метод `Object.keys` возвращает все имена _enumerable_ свойств объекта, в данном случае только `'name'`. Свойства, добавленные с помощью метода `defineProperty`, по умолчанию неизменны."
+    },
+    {
+      "id": "62",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const settings = {",
+        "  username: 'lydiahallie',",
+        "  level: 19,",
+        "  health: 90",
+        "};",
+        "",
+        "const data = JSON.stringify(settings, ['level', 'health']);",
+        "console.log(data);"
+      ],
+      "options": {
+        "A": "\"{ 'level': 19, 'health': 90 }\"",
+        "B": "\"{ 'username': 'lydiahallie' }\"",
+        "C": "\"['level', 'health']\"",
+        "D": "\"{ 'username': 'lydiahallie', 'level': 19, 'health': 90 }\""
+      },
+      "correctAnswer": "A",
+      "explanation": "Второй аргумент `JSON.stringify` - это _replacer_. Если заменитель является _массивом_, только свойства, имена которых включены в массив, будут добавлены в строку JSON. В этом случае включаются только свойства с именами `'level'` и `'health'`, `'username'` исключается."
+    },
+    {
+      "id": "63",
+      "question": "Какой будет вывод?",
+      "code": [
+        "let num = 10;",
+        "",
+        "const increaseNumber = () => num++;",
+        "const increasePassedNumber = number => number++;",
+        "",
+        "const num1 = increaseNumber();",
+        "const num2 = increasePassedNumber(num1);",
+        "",
+        "console.log(num1);",
+        "console.log(num2);"
+      ],
+      "options": {
+        "A": "10, 10",
+        "B": "10, 11",
+        "C": "11, 11",
+        "D": "11, 12"
+      },
+      "correctAnswer": "A",
+      "explanation": "Унарный оператор `++` _сначала возвращает_ значение операнда, _затем приращивает_ значение операнда. Значение `num1` равно `10`, так как функция увеличений вначале возвращает значение `num`, которое равно `10`, и только затем увеличивает значение `num`. `num2` - это `10`, так как мы передали `num1` в `increasePassedNumber`. `number` равно `10`. Значение `number` после увеличения остается `10`, так как функция `increasePassedNumber` возвращает значение до увеличения."
+    },
+    {
+      "id": "64",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const value = { number: 10 };",
+        "",
+        "const multiply = (x = { ...value }) => {",
+        "  console.log((x.number *= 2));",
+        "};",
+        "",
+        "multiply();",
+        "multiply();",
+        "multiply(value);",
+        "multiply(value);"
+      ],
+      "options": {
+        "A": "20, 40, 80, 160",
+        "B": "20, 40, 20, 40",
+        "C": "20, 20, 20, 40",
+        "D": "NaN, NaN, 20, 40"
+      },
+      "correctAnswer": "C",
+      "explanation": "Каждый раз, когда вызывается функция `multiply` без параметра, создается новый объект `{number: 10}`, поэтому в результате первого и второго вызова `multiply` значение умножается независимо. При передаче аргумента, который является ссылкой на тот же объект, происходит изменение значения в объекте, что влияет на последующие вызовы функции."
+    },
+    {
+      "id": "65",
+      "question": "Какой будет вывод?",
+      "code": [
+        "[1, 2, 3, 4].reduce((x, y) => console.log(x, y));"
+      ],
+      "options": {
+        "A": "1 2, 3 3 и 6 4",
+        "B": "1 2, 2 3 и 3 4",
+        "C": "1 undefined, 2 undefined, 3 undefined и 4 undefined",
+        "D": "1 2, undefined 3 и undefined 4"
+      },
+      "correctAnswer": "D",
+      "explanation": "Метод `reduce` использует первый элемент массива в качестве начального значения аккумулятора, если не передан `initialValue`. При отсутствии начального значения аккумулятор равен первому элементу при первом вызове, а текущее значение — второму элементу. Последующие вызовы функции будут использовать `undefined` в качестве аккумулятора, так как функция обратного вызова не возвращает значения."
+    },
+    {
+      "id": "66",
+      "question": "С помощью какого конструктора мы можем успешно расширить класс `Dog`?",
+      "code": [
+        "class Dog {",
+        "  constructor(name) {",
+        "    this.name = name;",
+        "  }",
+        "};",
+        "",
+        "class Labrador extends Dog {",
+        "  // 1",
+        "  constructor(name, size) {",
+        "    this.size = size;",
+        "  }",
+        "  // 2",
+        "  constructor(name, size) {",
+        "    super(name);",
+        "    this.size = size;",
+        "  }",
+        "  // 3",
+        "  constructor(size) {",
+        "    super(name);",
+        "    this.size = size;",
+        "  }",
+        "  // 4",
+        "  constructor(name, size) {",
+        "    this.name = name;",
+        "    this.size = size;",
+        "  }",
+        "};"
+      ],
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correctAnswer": "B",
+      "explanation": "В производном классе вы не можете получить доступ к ключевому слову `this` до вызова `super`. Конструктор с вызовом `super(name)` правильно инициализирует свойство родительского класса и добавляет дополнительное свойство."
+    },
+    {
+      "id": "67",
+      "question": "Какой будет вывод?",
+      "code": [
+        "// index.js",
+        "console.log('running index.js');",
+        "import { sum } from './sum.js';",
+        "console.log(sum(1, 2));",
+        "",
+        "// sum.js",
+        "console.log('running sum.js');",
+        "export const sum = (a, b) => a + b;"
+      ],
+      "options": {
+        "A": "running index.js, running sum.js, 3",
+        "B": "running sum.js, running index.js, 3",
+        "C": "running sum.js, 3, running index.js",
+        "D": "running index.js, undefined, running sum.js"
+      },
+      "correctAnswer": "B",
+      "explanation": "При использовании `import`, все импортируемые модули выполняются первыми. Поэтому сначала выполняется код в `sum.js`, затем код в `index.js`. `console.log(sum(1, 2));` выполняется после выполнения `import` и инициализации функции `sum`."
+    },
+    {
+      "id": "68",
+      "question": "Какой будет вывод?",
+      "code": [
+        "console.log(Number(2) === Number(2))",
+        "console.log(Boolean(false) === Boolean(false))",
+        "console.log(Symbol('foo') === Symbol('foo'))"
+      ],
+      "options": {
+        "A": "true, true, false",
+        "B": "false, true, false",
+        "C": "true, false, true",
+        "D": "true, true, true"
+      },
+      "correctAnswer": "A",
+      "explanation": "Операторы сравнения равенства (`===`) для `Number` и `Boolean` возвращают `true`, так как значения примитивных типов данных равны. Однако `Symbol` всегда уникален, даже если он создан с одним и тем же описанием, поэтому сравнение двух символов всегда возвращает `false`."
+    },
+    {
+      "id": "69",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const name = 'Lydia Hallie'",
+        "console.log(name.padStart(13))",
+        "console.log(name.padStart(2))"
+      ],
+      "options": {
+        "A": "'Lydia Hallie', 'Lydia Hallie'",
+        "B": "'           Lydia Hallie', '  Lydia Hallie'",
+        "C": "' Lydia Hallie', 'Lydia Hallie'",
+        "D": "'Lydia Hallie', 'Lyd'"
+      },
+      "correctAnswer": "C",
+      "explanation": "Метод `padStart` добавляет отступ в начало строки до указанной общей длины. Если длина строки уже больше или равна указанному значению, дополнение не происходит. `name.padStart(13)` добавляет один пробел перед строкой, а `name.padStart(2)` не изменяет строку, так как 2 меньше длины строки."
+    },
+    {
+      "id": "70",
+      "question": "Какой будет вывод?",
+      "code": [
+        "console.log('🥑' + '💻');"
+      ],
+      "options": {
+        "A": "'🥑💻'",
+        "B": "257548",
+        "C": "Строка, содержащая кодовые обозначения",
+        "D": "Error"
+      },
+      "correctAnswer": "A",
+      "explanation": "Оператор `+` используется для объединения строк. В данном случае строки `'🥑'` и `'💻'` объединяются в `'🥑💻'`."
+    },
+    {
+      "id": "71",
+      "question": "Как мы можем вывести в лог значения, которые закомментированы после оператора console.log?",
+      "code": [
+        "function* startGame() {",
+        "  const answer = yield 'Do you love JavaScript?';",
+        "  if (answer !== 'Yes') {",
+        "    return 'Oh wow... Guess we're gone here';",
+        "  }",
+        "  return 'JavaScript loves you back ❤️';",
+        "}",
+        "",
+        "const game = startGame();",
+        "console.log(/* 1 */);",
+        "console.log(/* 2 */);"
+      ],
+      "options": {
+        "A": "game.next(\"Yes\").value и game.next().value",
+        "B": "game.next.value(\"Yes\") и game.next.value()",
+        "C": "game.next().value и game.next(\"Yes\").value",
+        "D": "game.next.value() и game.next.value(\"Yes\")"
+      },
+      "correctAnswer": "C",
+      "explanation": "Функция генератора 'приостанавливает' выполнение, когда видит ключевое слово yield. Во-первых, мы должны позволить функции выдать строку 'Do you love JavaScript?', что можно сделать, вызвав `game.next().value`. После этого, вызывая `game.next('Yes').value`, значение переменной `answer` устанавливается в 'Yes', и возвращается 'JavaScript loves you back ❤️'."
+    },
+    {
+      "id": "73",
+      "question": "Какой будет вывод?",
+      "code": [
+        "async function getData() {",
+        "  return await Promise.resolve('I made it!');",
+        "}",
+        "",
+        "const data = getData();",
+        "console.log(data);"
+      ],
+      "options": {
+        "A": "\"I made it!\"",
+        "B": "Promise {<resolved>: \"I made it!\"}",
+        "C": "Promise {<pending>}",
+        "D": "undefined"
+      },
+      "correctAnswer": "B",
+      "explanation": "Асинхронная функция всегда возвращает Promise. В данном случае `getData()` возвращает обещание, которое разрешается в строку 'I made it!'."
+    },
+    {
+      "id": "74",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function addToList(item, list) {",
+        "  return list.push(item);",
+        "}",
+        "",
+        "const result = addToList('apple', ['banana']);",
+        "console.log(result);"
+      ],
+      "options": {
+        "A": "['apple', 'banana']",
+        "B": "2",
+        "C": "true",
+        "D": "undefined"
+      },
+      "correctAnswer": "B",
+      "explanation": "Метод `.push()` возвращает длину нового массива. В данном случае он возвращает `2`, так как после добавления 'apple' в массив длина становится `2`."
+    },
+    {
+      "id": "75",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const box = { x: 10, y: 20 };",
+        "",
+        "Object.freeze(box);",
+        "",
+        "const shape = box;",
+        "shape.x = 100;",
+        "",
+        "console.log(shape);"
+      ],
+      "options": {
+        "A": "{ x: 100, y: 20 }",
+        "B": "{ x: 10, y: 20 }",
+        "C": "{ x: 100 }",
+        "D": "ReferenceError"
+      },
+      "correctAnswer": "B",
+      "explanation": "Метод `Object.freeze` делает объект неизменяемым. Попытка изменить свойства замороженного объекта не приведет к изменению его значений."
+    },
+    {
+      "id": "76",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const { firstName: myName } = { firstName: 'Lydia' };",
+        "",
+        "console.log(firstName);"
+      ],
+      "options": {
+        "A": "\"Lydia\"",
+        "B": "\"myName\"",
+        "C": "undefined",
+        "D": "ReferenceError"
+      },
+      "correctAnswer": "D",
+      "explanation": "При деструктуризации объекта с переименованием переменной `firstName` становится `myName`, и `firstName` не существует в текущей области видимости."
+    },
+    {
+      "id": "77",
+      "question": "Это чистая функция?",
+      "code": [
+        "function sum(a, b) {",
+        "  return a + b;",
+        "}"
+      ],
+      "options": {
+        "A": "Да",
+        "B": "Нет"
+      },
+      "correctAnswer": "A",
+      "explanation": "Чистая функция всегда возвращает один и тот же результат для одних и тех же входных данных и не имеет побочных эффектов. Функция `sum` соответствует этому определению."
+    },
+    {
+      "id": "78",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const add = () => {",
+        "  const cache = {};",
+        "  return num => {",
+        "    if (num in cache) {",
+        "      return `From cache! ${cache[num]}`;",
+        "    } else {",
+        "      const result = num + 10;",
+        "      cache[num] = result;",
+        "      return `Calculated! ${result}`;",
+        "    }",
+        "  };",
+        "};",
+        "",
+        "const addFunction = add();",
+        "console.log(addFunction(10));",
+        "console.log(addFunction(10));",
+        "console.log(addFunction(5 * 2));"
+      ],
+      "options": {
+        "A": "Calculated! 20, Calculated! 20, Calculated! 20",
+        "B": "Calculated! 20, From cache! 20, Calculated! 20",
+        "C": "Calculated! 20, From cache! 20, From cache! 20",
+        "D": "Calculated! 20, From cache! 20, Error"
+      },
+      "correctAnswer": "C",
+      "explanation": "Функция `add` использует кэширование для оптимизации повторных вызовов с теми же аргументами. В данном случае, значения, которые уже находятся в кэше, возвращаются с пометкой 'From cache!'."
+    },
+    {
+      "id": "79",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const myLifeSummedUp = ['☕', '💻', '🍷', '🍫']",
+        "",
+        "for (let item in myLifeSummedUp) {",
+        "  console.log(item)",
+        "}",
+        "",
+        "for (let item of myLifeSummedUp) {",
+        "  console.log(item)",
+        "}"
+      ],
+      "options": {
+        "A": "0 1 2 3 и '☕' '💻' '🍷' '🍫'",
+        "B": "'☕' '💻' '🍷' '🍫' и '☕' '💻' '🍷' '🍫'",
+        "C": "'☕' '💻' '🍷' '🍫' и 0 1 2 3",
+        "D": "0 1 2 3 и {0: '☕', 1: '💻', 2: '🍷', 3: '🍫'}"
+      },
+      "correctAnswer": "A",
+      "explanation": "Цикл `for-in` перечисляет индексы массива, а цикл `for-of` перечисляет значения элементов массива."
+    },
+    {
+      "id": "80",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const list = [1 + 2, 1 * 2, 1 / 2]",
+        "console.log(list)"
+      ],
+      "options": {
+        "A": "[\"1 + 2\", \"1 * 2\", \"1 / 2\"]",
+        "B": "[\"12\", 2, 0.5]",
+        "C": "[3, 2, 0.5]",
+        "D": "[1, 1, 1]"
+      },
+      "correctAnswer": "C",
+      "explanation": "Элементы массива содержат результаты вычислений выражений: `1 + 2` (3), `1 * 2` (2), и `1 / 2` (0.5)."
+    },
+    {
+      "id": "81",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function sayHi(name) {",
+        "  return `Hi there, ${name}`",
+        "}",
+        "",
+        "console.log(sayHi())"
+      ],
+      "options": [
+        "Hi there, ",
+        "Hi there, undefined",
+        "Hi there, null",
+        "ReferenceError"
+      ],
+      "answer": "Hi there, undefined",
+      "explanation": "По умолчанию аргументы имеют значение `undefined`, если только значение не было передано функции. В этом случае мы не передали значение для аргумента `name`, и `name` равно `undefined`. Поэтому в результате будет выведено `Hi there, undefined`."
+    },
+    {
+      "id": "82",
+      "question": "Какой будет вывод?",
+      "code": [
+        "var status = '😎'",
+        "",
+        "setTimeout(() => {",
+        "  const status = '😍'",
+        "",
+        "  const data = {",
+        "    status: '🥑',",
+        "    getStatus() {",
+        "      return this.status",
+        "    }",
+        "  }",
+        "",
+        "  console.log(data.getStatus())",
+        "  console.log(data.getStatus.call(this))",
+        "}, 0)"
+      ],
+      "options": [
+        "\"🥑\" и \"😍\"",
+        "\"🥑\" и \"😎\"",
+        "\"😍\" и \"😎\"",
+        "\"😎\" и \"😎\""
+      ],
+      "answer": "\"🥑\" и \"😎\"",
+      "explanation": "Значение ключевого слова `this` зависит от того, где вы его используете. В методе `getStatus` ключевое слово `this` ссылается на объект `data`, поэтому `this.status` возвращает `🥑`. При использовании метода `call(this)`, `this` в функции `setTimeout` ссылается на глобальный объект, где `status` равно `😎`."
+    },
+    {
+      "id": "83",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const person = {",
+        "  name: 'Lydia',",
+        "  age: 21",
+        "}",
+        "",
+        "let city = person.city",
+        "city = 'Amsterdam'",
+        "",
+        "console.log(person)"
+      ],
+      "options": [
+        "{ name: \"Lydia\", age: 21 }",
+        "{ name: \"Lydia\", age: 21, city: \"Amsterdam\" }",
+        "{ name: \"Lydia\", age: 21, city: undefined }",
+        "\"Amsterdam\""
+      ],
+      "answer": "{ name: \"Lydia\", age: 21 }",
+      "explanation": "Мы устанавливаем переменную `city` равной значению свойства `city` объекта `person`, которое равно `undefined`. Изменение `city` не влияет на объект `person`, поэтому при выводе `person` он остается неизменным."
+    },
+    {
+      "id": "84",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function checkAge(age) {",
+        "  if (age < 18) {",
+        "    const message = \"Sorry, you're too young.\"",
+        "  } else {",
+        "    const message = \"Yay! You're old enough!\"",
+        "  }",
+        "",
+        "  return message",
+        "}",
+        "",
+        "console.log(checkAge(21))"
+      ],
+      "options": [
+        "\"Sorry, you're too young.\"",
+        "\"Yay! You're old enough!\"",
+        "ReferenceError",
+        "undefined"
+      ],
+      "answer": "ReferenceError",
+      "explanation": "Переменные с `const` и `let` имеют блочную видимость и недоступны за пределами блока, в котором они объявлены. В данном случае переменная `message` объявлена в блоках `if` и `else`, и попытка доступа к ней вне этих блоков приводит к ошибке."
+    },
+    {
+      "id": "85",
+      "question": "Какая информация будет выведена в лог?",
+      "code": [
+        "fetch('https://www.website.com/api/user/1')",
+        "  .then(res => res.json())",
+        "  .then(res => console.log(res))"
+      ],
+      "options": [
+        "Результат метода fetch.",
+        "Результат второго вызова метода fetch.",
+        "Результат коллбэка в предыдущем `.then()`.",
+        "Всегда будет undefined."
+      ],
+      "answer": "Результат коллбэка в предыдущем `.then()`.",
+      "explanation": "Значение `res` во втором `.then` равно возвращенному значению предыдущего `.then`. Это значение передается следующему обработчику и выводится в лог."
+    },
+    {
+      "id": "86",
+      "question": "Какая опция позволяет установить `hasName` равным `true`, если вы не можете передать `true` в качестве аргумента?",
+      "code": [
+        "function getName(name) {",
+        "  const hasName = //",
+        "}"
+      ],
+      "options": [
+        "!!name",
+        "name",
+        "new Boolean(name)",
+        "name.length"
+      ],
+      "answer": "!!name",
+      "explanation": "Использование `!!name` преобразует значение `name` в логическое значение, проверяя, истинно ли оно. Если значение `name` истинное, `!!name` будет равно `true`."
+    },
+    {
+      "id": "87",
+      "question": "Какой будет вывод?",
+      "code": [
+        "console.log('I want pizza'[0])"
+      ],
+      "options": [
+        "\"\"",
+        "\"I\"",
+        "SyntaxError",
+        "undefined"
+      ],
+      "answer": "\"I\"",
+      "explanation": "Для получения символа по индексу в строке можно использовать скобочную нотацию. Первый символ строки имеет индекс 0, поэтому `['I want pizza'][0]` возвращает 'I'."
+    },
+    {
+      "id": "88",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function sum(num1, num2 = num1) {",
+        "  console.log(num1 + num2)",
+        "}",
+        "",
+        "sum(10)"
+      ],
+      "options": [
+        "NaN",
+        "20",
+        "ReferenceError",
+        "undefined"
+      ],
+      "answer": "20",
+      "explanation": "Значение параметра по умолчанию может быть установлено равным другому параметру функции, если оно определено до него. В этом случае `num2` устанавливается равным `num1`, и результат сложения `10 + 10` равен `20`."
+    },
+    {
+      "id": "89",
+      "question": "Какой будет вывод?",
+      "code": [
+        "// module.js",
+        "export default () => 'Hello world'",
+        "export const name = 'Lydia'",
+        "",
+        "// index.js",
+        "import * as data from './module'",
+        "",
+        "console.log(data)"
+      ],
+      "options": [
+        "{ default: function default(), name: \"Lydia\" }",
+        "{ default: function default() }",
+        "{ default: \"Hello world\", name: \"Lydia\" }",
+        "Global object of module.js"
+      ],
+      "answer": "{ default: function default(), name: \"Lydia\" }",
+      "explanation": "Импорт с помощью `import * as name` создает объект, содержащий все экспорты из файла `module.js`. В этом случае `data` включает как экспорт по умолчанию, так и именованный экспорт."
+    },
+    {
+      "id": "90",
+      "question": "Какой будет вывод?",
+      "code": [
+        "class Person {",
+        "  constructor(name) {",
+        "    this.name = name",
+        "  }",
+        "}",
+        "",
+        "const member = new Person('John')",
+        "console.log(typeof member)"
+      ],
+      "options": [
+        "\"class\"",
+        "\"function\"",
+        "\"object\"",
+        "\"string\""
+      ],
+      "answer": "\"object\"",
+      "explanation": "Классы в JavaScript являются синтаксическим сахаром для конструкторов функций. При создании экземпляра класса `Person` с помощью `new`, `typeof` возвращает `'object'` для экземпляра."
+    },
+    {
+      "id": "91",
+      "question": "Какой будет вывод?",
+      "code": [
+        "let newList = [1, 2, 3].push(4)",
+        "",
+        "console.log(newList.push(5))"
+      ],
+      "options": {
+        "A": "[1, 2, 3, 4, 5]",
+        "B": "[1, 2, 3, 5]",
+        "C": "[1, 2, 3, 4]",
+        "D": "Error"
+      },
+      "answer": "D",
+      "explanation": "Метод `.push` возвращает _новую длину_ массива, а не сам массив! Устанавливая `newList` равным `[1, 2, 3].push(4)`, мы устанавливаем `newList` равным новой длине массива: `4`. Затем мы пытаемся использовать метод `.push` для `newList`. Поскольку `newList` является числовым значением `4`, мы не можем использовать метод `.push`: выдается ошибка TypeError."
+    },
+    {
+      "id": "92",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function giveLydiaPizza() {",
+        "  return 'Here is pizza!'",
+        "}",
+        "",
+        "const giveLydiaChocolate = () =>",
+        "  \"Here's chocolate... now go hit the gym already.\"",
+        "",
+        "console.log(giveLydiaPizza.prototype)",
+        "console.log(giveLydiaChocolate.prototype)"
+      ],
+      "options": {
+        "A": "{ constructor: ...} { constructor: ...}",
+        "B": "{} { constructor: ...}",
+        "C": "{ constructor: ...} {}",
+        "D": "{ constructor: ...} undefined"
+      },
+      "answer": "D",
+      "explanation": "Обычные функции, такие как функция `giveLydiaPizza`, имеют свойство `prototype`, которое является объектом (прототипом объекта) со свойством `constructor`. Однако функции со стрелками, такие как функция `giveLydiaChocolate`, не имеют этого свойства `prototype`. `undefined` возвращается при попытке доступа к свойству `prototype` с использованием `giveLydiaChocolate.prototype`."
+    },
+    {
+      "id": "93",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const person = {",
+        "  name: 'Lydia',",
+        "  age: 21",
+        "}",
+        "",
+        "for (const [x, y] of Object.entries(person)) {",
+        "  console.log(x, y)",
+        "}"
+      ],
+      "options": {
+        "A": "name Lydia and age 21",
+        "B": "[\"name\", \"Lydia\"] and [\"age\", 21]",
+        "C": "[\"name\", \"age\"] and undefined",
+        "D": "Error"
+      },
+      "answer": "A",
+      "explanation": "Object.entries(person) возвращает массив вложенных массивов, содержащий ключи и объекты: [ [ 'name', 'Lydia' ], [ 'age', 21 ] ] Используя цикл `for-of`, мы можем перебирать каждый элемент массива, в данном случае подмассивы. Мы можем мгновенно деструктурировать подмассивы в цикле for, используя `const [x, y]`. `x` равен первому элементу в подмассиве, `y` равен второму элементу в подмассиве. Первым подмассивом является `[ \"name\", \"Lydia\" ]`, где `x` равно `\"name\"`, и `y` равно `\"Lydia\"`, которые выводятся в лог. Вторым подмассивом является `[ \"age\", 21 ]`, где `x` равно `\"age\"`, и `y` равно `21`, которые выводятся в лог."
+    },
+    {
+      "id": "94",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function getItems(fruitList, ...args, favoriteFruit) {",
+        "  return [...fruitList, ...args, favoriteFruit]",
+        "}",
+        "",
+        "getItems([\"banana\", \"apple\"], \"pear\", \"orange\")"
+      ],
+      "options": {
+        "A": "[\"banana\", \"apple\", \"pear\", \"orange\"]",
+        "B": "[[\"banana\", \"apple\"], \"pear\", \"orange\"]",
+        "C": "[\"banana\", \"apple\", [\"pear\"], \"orange\"]",
+        "D": "SyntaxError"
+      },
+      "answer": "D",
+      "explanation": "`... args` - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы **и может быть передан только последним**! В этом примере прочие параметры были вторым аргументом. Это невозможно, и это приведет к синтаксической ошибке. function getItems(fruitList, favoriteFruit, ...args) { return [...fruitList, ...args, favoriteFruit] } getItems([\"banana\", \"apple\"], \"pear\", \"orange\") Приведенный выше пример работает. Это возвращает массив `[ 'banana', 'apple', 'orange', 'pear' ]`."
+    },
+    {
+      "id": "95",
+      "question": "Какой будет вывод?",
+      "code": [
+        "function nums(a, b) {",
+        "  if (a > b) console.log('a is bigger')",
+        "  else console.log('b is bigger')",
+        "  return",
+        "    a + b;",
+        "}",
+        "",
+        "console.log(nums(4, 2))",
+        "console.log(nums(1, 2))"
+      ],
+      "options": {
+        "A": "a is bigger, 6 and b is bigger, 3",
+        "B": "a is bigger, undefined and b is bigger, undefined",
+        "C": "undefined and undefined",
+        "D": "SyntaxError"
+      },
+      "answer": "B",
+      "explanation": "В JavaScript мы _не должны_ явно указывать точку с запятой (`;`), однако движок JavaScript все равно добавляет их после операторов. Это называется **автоматической вставкой точек с запятой**. Например, оператором могут быть переменные или ключевые слова, такие как `throw`, `return`, `break` и т.д. Здесь мы написали инструкцию `return` и другое значение `a + b` в новой строке. Однако, поскольку это новая линия, движок не знает, что это на самом деле значение, которое мы хотели бы вернуть. Вместо этого он автоматически добавляет точку с запятой после `return`. Вы можете увидеть это как: return; a + b // Это означает, что `a + b` никогда не достигается, так как функция перестает выполняться после ключевого слова `return`. Если значение не возвращается, как здесь, функция возвращает значение `undefined`. Обратите внимание, что после операторов `if / else` автоматической вставки нет!"
+    },
+    {
+      "id": "96",
+      "question": "Какой будет вывод?",
+      "code": [
+        "class Person {",
+        "  constructor() {",
+        "    this.name = 'Lydia'",
+        "  }",
+        "}",
+        "",
+        "Person = class AnotherPerson {",
+        "  constructor() {",
+        "    this.name = 'Sarah'",
+        "  }",
+        "}",
+        "",
+        "const member = new Person()",
+        "console.log(member.name)"
+      ],
+      "options": {
+        "A": "\"Lydia\"",
+        "B": "\"Sarah\"",
+        "C": "Error: cannot redeclare Person",
+        "D": "SyntaxError"
+      },
+      "answer": "B",
+      "explanation": "Мы можем установить классы равными другим классам/конструкторам функций. В этом случае мы устанавливаем `Person` равным `AnotherPerson`. Свойство `name` этого конструктора - `Sarah`, поэтому свойство `name` для нового экземпляра класса `Person` `member` - это `Sarah`."
+    },
+    {
+      "id": "97",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const info = {",
+        "  [Symbol('a')]: 'b'",
+        "}",
+        "",
+        "console.log(info)",
+        "console.log(Object.keys(info))"
+      ],
+      "options": {
+        "A": "{Symbol('a'): 'b'} and [\"{Symbol('a')\"]",
+        "B": "{} and []",
+        "C": "{ a: \"b\" } and [\"a\"]",
+        "D": "{Symbol('a'): 'b'} and []"
+      },
+      "answer": "D",
+      "explanation": "`Symbol` не является _перечисляемый_. Метод `Object.keys` возвращает все _перечисляемые_ свойства ключа для объекта. `Symbol` не просматривается таким образом, и возвращается пустой массив. При регистрации всего объекта будут видны все свойства, даже не перечисляемые. Это одно из многих качеств символа: помимо представления совершенно уникального значения (которое предотвращает случайное столкновение имен в объектах, например, при работе с 2 библиотеками, которые хотят добавить свойства к одному и тому же объекту), вы также можете \"скрыть\" свойства объектов таким образом (хотя и не полностью. Вы можете получить доступ к символам, используя метод `Object.getOwnPropertySymbols()`)."
+    },
+    {
+      "id": "98",
+      "question": "Какой будет вывод?",
+      "code": [
+        "const getList = ([x, ...y]) => [x, y]",
+        "const getUser = user => { name: user.name, age: user.age }",
+        "",
+        "const list = [1, 2, 3, 4]",
+        "const user = { name: \"Lydia\", age: 21 }",
+        "",
+        "console.log(getList(list))",
+        "console.log(getUser(user))"
+      ],
+      "options": {
+        "A": "[1, [2, 3, 4]] and { name: \"Lydia\", age: 21 }",
+        "B": "[1, [2, 3, 4]] and undefined",
+        "C": "[1, [2, 3, 4]] and { age: 21 }",
+        "D": "[1, [2, 3, 4]] and SyntaxError"
+      },
+      "answer": "B",
+      "explanation": "Функция `getList` возвращает массив `[x, y]`, где `x` это первый элемент, а `y` - оставшиеся элементы. Поэтому для `list` результат будет `[1, [2, 3, 4]]`. Функция `getUser` определена с использованием фигурных скобок, и здесь это интерпретируется как блок кода, а не как объект. Чтобы вернуть объект, нужно использовать круглые скобки: `const getUser = user => ({ name: user.name, age: user.age })`. В текущей реализации, функция возвращает `undefined`, что приводит к `undefined` в выводе."
+    },
+    {
+      "id": "99",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "const one = (false || {} || null)",
+        "const two = (null || false || '')",
+        "const three = ([] || 0 || true)",
+        "",
+        "console.log(one, two, three)"
+      ],
+      "options": {
+        "A": "false null []",
+        "B": "null \"\" true",
+        "C": "{} \"\" []",
+        "D": "null null true"
+      },
+      "answer": "C",
+      "explanation": "С помощью оператора `||` мы можем вернуть первый истинный операнд. Если все значения ложны, последний операнд возвращается. (false || {} || null)`: пустой объект `{}` является истинным значением. Это первое (и единственное) истинное значение, которое возвращается. `one` содержит `{}`.`(null || false || '')`: все операнды являются ложными значениями. Это означает, что прошедший операнд `''` возвращается. `two` содержит `''`. `([] || 0 || true)`: пустой массив `[]` является истинным значением. Это первое истинное значение, которое возвращается. `three` присвоено `[]`."
+    },
+    {
+      "id": "100",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "const myPromise = () => Promise.resolve('I have resolved!')",
+        "",
+        "function firstFunction() {",
+        "  myPromise().then(res => console.log(res))",
+        "  console.log('second')",
+        "}",
+        "",
+        "async function secondFunction() {",
+        "  console.log(await myPromise())",
+        "  console.log('second')",
+        "}",
+        "",
+        "firstFunction()",
+        "secondFunction()"
+      ],
+      "options": {
+        "A": "I have resolved! second and I have resolved! second",
+        "B": "second I have resolved! and second I have resolved!",
+        "C": "I have resolved! second and second I have resolved!",
+        "D": "second I have resolved! and I have resolved! second"
+      },
+      "answer": "D",
+      "explanation": "С обещанием мы в основном говорим: _\"Я хочу выполнить эту функцию и откладываю ее, пока она выполняется, поскольку это может занять некоторое время. Только когда определенное значение разрешено (или отклонено), и когда стек вызовов пуст, я хочу использовать это значение_. Мы можем получить это значение с помощью ключевого слова `.then` и `await` в функции `async`. Хотя мы можем получить значение обещания с помощью `.then` и `await`, они работают немного по-разному. В `firstFunction` мы (вроде) отложили функцию `myPromise` во время ее работы, но продолжили выполнение другого кода, в данном случае `console.log ('second')`. Затем функция разрешается строкой `I have resolved`, которая затем логируется после того, как она увидела, что стек вызовов пуст. Используя ключевое слово `await` в `secondFunction`, мы буквально приостанавливаем выполнение асинхронной функции до тех пор, пока значение не будет разрешено до перехода на следующую строку. Это означает, что мы ожидали разрешения `myPromise` со значением `I have resolved`, и только когда это произошло, мы перешли к следующей строке: `second` была выведена в консоль последней."
+    },
+    {
+      "id": "101",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "const set = new Set()",
+        "",
+        "set.add(1)",
+        "set.add('Lydia')",
+        "set.add({ name: 'Lydia' })",
+        "",
+        "for (let item of set) {",
+        "  console.log(item + 2)",
+        "}"
+      ],
+      "options": {
+        "A": "3 NaN NaN",
+        "B": "3 7 NaN",
+        "C": "3 Lydia2 [object Object]2",
+        "D": "\"12\" Lydia2 [object Object]2"
+      },
+      "answer": "C",
+      "explanation": "Оператор `+` используется не только для добавления числовых значений, но мы также можем использовать его для объединения строк. Всякий раз, когда движок JavaScript видит, что одно или несколько значений не являются числом, он приводит число к строке. Первым является `1`, который является числовым значением. `1 + 2` возвращает число `3`. Тем не менее, вторая строка `\"Lydia\"`. `\"Lydia\"` является строкой, а `2` является числом: `2` приводится к строке. `\"Lydia\"` и `\"2\"` объединяются, что приводит к результирующей строке `\"Lydia2\"`.`{name: \"Lydia\"}` является объектом. Ни число, ни объект не являются строкой, поэтому они приводятся к строке. Всякий раз, когда мы приводим обычный объект, он становится `\"[object Object]\"`. `\"[object Object]\"`, объединенный с `\"2\"`, становится `\"[object Object]2\"`."
+    },
+    {
+      "id": "102",
+      "question": "Чему равно значение?",
+      "code": [
+        "Promise.resolve(5)"
+      ],
+      "options": {
+        "A": "5",
+        "B": "Promise {<pending>: 5}",
+        "C": "Promise {<fulfilled>: 5}",
+        "D": "Error"
+      },
+      "answer": "C",
+      "explanation": "Мы можем передать любой тип значения, которое мы хотим, в `Promise.resolve`, либо обещание, либо не обещание. Сам метод возвращает обещание с разрешенным значением (`<fulfilled>`). Если вы передадите обычную функцию, это будет разрешенное обещание с обычным значением. Если вы передадите обещание, это будет разрешенное обещание с разрешенным значением этого пройденного обещания. В этом случае мы просто передали числовое значение `5`. Возвращается разрешенное обещание со значением `5`."
+    },
+    {
+      "id": "103",
+      "question": "Чему равно значение?",
+      "code": [
+        "function compareMembers(person1, person2 = person) {",
+        "  if (person1 !== person2) {",
+        "    console.log('Not the same!')",
+        "  } else {",
+        "    console.log('They are the same!')",
+        "  }",
+        "}",
+        "",
+        "const person = { name: 'Lydia' }",
+        "",
+        "compareMembers(person)"
+      ],
+      "options": {
+        "A": "Not the same!",
+        "B": "They are the same!",
+        "C": "ReferenceError",
+        "D": "SyntaxError"
+      },
+      "answer": "B",
+      "explanation": "Объекты передаются по ссылке. Когда мы проверяем объекты на строгое равенство (`===`), мы сравниваем их ссылки. Мы устанавливаем значение по умолчанию для `person2`, равное объекту `person`, и передаем объект `person` в качестве значения для `person1`. Это означает, что оба значения имеют ссылку на одно и то же место в памяти, поэтому они равны. Блок кода в операторе `else` запускается, и в лог выводится `They are the same!`."
+    },
+    {
+      "id": "104",
+      "question": "Чему равно значение?",
+      "code": [
+        "const colorConfig = {",
+        "  red: true,",
+        "  blue: false,",
+        "  green: true,",
+        "  black: true,",
+        "  yellow: false,",
+        "}",
+        "",
+        "const colors = ['pink', 'red', 'blue']",
+        "",
+        "console.log(colorConfig.colors[1])"
+      ],
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "undefined",
+        "D": "TypeError"
+      },
+      "answer": "D",
+      "explanation": "В JavaScript у нас есть два способа доступа к свойствам объекта: нотация в скобках или нотация в точках. В этом примере мы используем точечную нотацию (`colorConfig.colors`) вместо скобочной нотации (`colorConfig[\"colors\"]`). В точечной нотации JavaScript пытается найти свойство объекта с таким точным именем. В этом примере JavaScript пытается найти свойство с именем `colors` в объекте `colorConfig`. Не существует свойства с именем `colors`, поэтому возвращается `undefined`. Затем мы пытаемся получить доступ к значению первого элемента, используя `[1]`. Мы не можем сделать это для значения, которое `undefined`, поэтому оно выдает `TypeError`: `Cannot read свойство '1' of undefined`. JavaScript интерпретирует (или распаковывает) операторы. Когда мы используем скобочные обозначения, он видит первую открывающую скобку `[` и продолжает работать, пока не найдет закрывающую скобку `]`. Только тогда он оценит утверждение. Если бы мы использовали `colorConfig[colors [1]]`, он бы возвратил значение свойства `red` объекта `colorConfig`."
+    },
+    {
+      "id": "105",
+      "question": "Чему равно значение?",
+      "code": [
+        "console.log('❤️' === '❤️')"
+      ],
+      "options": {
+        "A": "true",
+        "B": "false"
+      },
+      "answer": "A",
+      "explanation": "Под капотом смайлики - это юникоды. Юникод для сердца смайликов `\"U+2764 U+FE0F\"`. Они всегда одинаковы для одного и того же смайлика, поэтому мы сравниваем две одинаковые строки друг с другом, что возвращает `true`."
+    },
+    {
+      "id": "106",
+      "question": "Какой из этих методов модифицирует исходный массив?",
+      "code": [
+        "const emojis = ['✨', '🥑', '😍']",
+        "",
+        "emojis.map(x => x + '✨')",
+        "emojis.filter(x => x !== '🥑')",
+        "emojis.find(x => x !== '🥑')",
+        "emojis.reduce((acc, cur) => acc + '✨')",
+        "emojis.slice(1, 2, '✨') ",
+        "emojis.splice(1, 2, '✨')"
+      ],
+      "options": {
+        "A": "All of them",
+        "B": "map reduce slice splice",
+        "C": "map slice splice",
+        "D": "splice"
+      },
+      "answer": "D",
+      "explanation": "Используя метод `splice`, мы модифицируем исходный массив, удаляя, заменяя или добавляя элементы. В этом случае мы удалили 2 элемента из индекса 1 (мы удалили `'🥑'` и `'😍'`) и добавили `✨` emoji. `map`, `filter` и `slice` возвращают новый массив, `find` возвращает элемент, а `reduce` возвращает аккумулированное значение."
+    },
+    {
+      "id": "107",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "const food = ['🍕', '🍫', '🥑', '🍔']",
+        "const info = { favoriteFood: food[0] }",
+        "",
+        "info.favoriteFood = '🍝'",
+        "",
+        "console.log(food)"
+      ],
+      "options": {
+        "A": "['🍕', '🍫', '🥑', '🍔']",
+        "B": "['🍝', '🍫', '🥑', '🍔']",
+        "C": "['🍝', '🍕', '🍫', '🥑', '🍔']",
+        "D": "ReferenceError"
+      },
+      "answer": "A",
+      "explanation": "Мы устанавливаем значение свойства `favourFood` для объекта `info` равным строке со смайликами для пиццы, `'🍕'`. Строка является примитивным типом данных. В JavaScript примитивные типы данных передаются по ссылке ... В JavaScript примитивные типы данных (все, что не является объектом) передаются как _значение_. В этом случае мы устанавливаем значение свойства `favourFood` объекта `info` равным значению первого элемента в массиве `food`, в данном случае это строка с emoji пиццы (`'🍕'`). Строка является примитивным типом данных и взаимодействует по значению (см. мой [пост в блоге](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference), если вы заинтересованы в получении дополнительной информации). Затем мы меняем значение свойства `favourFood` объекта `info`. Массив `food` не изменился, поскольку значение `favourFood` было просто _скопировано_ из значения первого элемента в массиве и не имеет ссылки на то же место в памяти, что и элемент на `food[0]`. Когда мы выводим в лог `food`, это все равно исходный массив, `['🍕', '🍫', '🥑', '🍔']`."
+    },
+    {
+      "id": "108",
+      "question": "Что делает этот метод?",
+      "code": [
+        "JSON.parse()"
+      ],
+      "options": {
+        "A": "Разбирает JSON в значение JavaScript",
+        "B": "Разбирает объект JavaScript в JSON",
+        "C": "Разбирает любое значение JavaScript в JSON",
+        "D": "Разбирает JSON непосредственно в объект JavaScript"
+      },
+      "answer": "A",
+      "explanation": "С помощью метода `JSON.parse ()` мы можем разобрать строку JSON в значение JavaScript. // Преобразование числа в допустимый JSON, затем преобразование строки JSON в значение JavaScript: const jsonNumber = JSON.stringify(4) // '4' JSON.parse(jsonNumber) // 4 // Преобразование значения массива в допустимый JSON, затем разбор строки JSON в значение JavaScript: const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]' JSON.parse(jsonArray) // [1, 2, 3] // Преобразование объекта в допустимый JSON, затем преобразование строки JSON в значение JavaScript: const jsonArray = JSON.stringify({ name: 'Lydia' }) // '{\"name\":\"Lydia\"}' JSON.parse(jsonArray) // { name: 'Lydia' }"
+    },
+    {
+      "id": "109",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "let name = 'Lydia'",
+        "",
+        "function getName() {",
+        "  console.log(name)",
+        "  let name = 'Sarah'",
+        "}",
+        "",
+        "getName()"
+      ],
+      "options": {
+        "A": "Lydia",
+        "B": "Sarah",
+        "C": "undefined",
+        "D": "ReferenceError"
+      },
+      "answer": "D",
+      "explanation": "Каждая функция имеет свой собственный контекст исполнения. Переменные, объявленные с помощью `let`, поднимаются, но не инициализируются, что создает 'временную мертвую зону'. Попытка доступа к переменной до её инициализации вызывает `ReferenceError`."
+    },
+    {
+      "id": "110",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "function* generatorOne() {",
+        "  yield ['a', 'b', 'c'];",
+        "}",
+        "",
+        "function* generatorTwo() {",
+        "  yield* ['a', 'b', 'c'];",
+        "}",
+        "",
+        "const one = generatorOne()",
+        "const two = generatorTwo()",
+        "",
+        "console.log(one.next().value)",
+        "console.log(two.next().value)"
+      ],
+      "options": {
+        "A": "a and a",
+        "B": "a and undefined",
+        "C": "['a', 'b', 'c'] and a",
+        "D": "a and ['a', 'b', 'c']"
+      },
+      "answer": "C",
+      "explanation": "Функция `generatorOne` возвращает массив `['a', 'b', 'c']` как одно значение, а `generatorTwo` с `yield*` возвращает каждое значение массива по отдельности."
+    },
+    {
+      "id": "111",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "console.log(`${(x => x)('I love')} to program`)"
+      ],
+      "options": {
+        "A": "I love to program",
+        "B": "undefined to program",
+        "C": "${(x => x)('I love') to program",
+        "D": "TypeError"
+      },
+      "answer": "A",
+      "explanation": "Литералы шаблона вычисляют выражения внутри `${}`. В данном случае функция `(x => x)('I love')` возвращает `'I love'`, которое используется в строке."
+    },
+    {
+      "id": "112",
+      "question": "Что произойдет?",
+      "code": [
+        "let config = {",
+        "  alert: setInterval(() => {",
+        "    console.log('Alert!')",
+        "  }, 1000)",
+        "}",
+        "",
+        "config = null"
+      ],
+      "options": {
+        "A": "обратный вызов `setInterval` не будет вызван",
+        "B": "обратный вызов `setInterval` будет вызван один раз",
+        "C": "обратный вызов `setInterval` будет вызываться каждую секунду",
+        "D": "мы никогда не вызовем `config.alert()`, т.к. `config` равно `null`"
+      },
+      "answer": "C",
+      "explanation": "Функция, переданная в `setInterval`, продолжает вызываться, даже если объект `config` был установлен в `null`. Это происходит потому, что интервал не очищен."
+    },
+    {
+      "id": "113",
+      "question": "Какие методы вернут значение `'Hello world!'`?",
+      "code": [
+        "const myMap = new Map()",
+        "const myFunc = () => 'greeting'",
+        "",
+        "myMap.set(myFunc, 'Hello world!')",
+        "",
+        "//1",
+        "myMap.get('greeting')",
+        "//2",
+        "myMap.get(myFunc)",
+        "//3",
+        "myMap.get(() => 'greeting')"
+      ],
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "2 и 3",
+        "D": "Каждый из них"
+      },
+      "answer": "B",
+      "explanation": "Метод `get` возвращает значение, соответствующее переданному ключу. Так как только `myFunc` совпадает с ключом, добавленным в `myMap`, `myMap.get(myFunc)` вернет `'Hello world!'`."
+    },
+    {
+      "id": "114",
+      "question": "Какое значение будет на выходе?",
+      "code": [
+        "const person = {",
+        "  name: 'Lydia',",
+        "  age: 21",
+        "}",
+        "",
+        "const changeAge = (x = { ...person }) => x.age += 1",
+        "const changeAgeAndName = (x = { ...person }) => {",
+        "  x.age += 1",
+        "  x.name = 'Sarah'",
+        "}",
+        "",
+        "changeAge(person)",
+        "changeAgeAndName()",
+        "",
+        "console.log(person)"
+      ],
+      "options": {
+        "A": "{name: \"Sarah\", age: 22}",
+        "B": "{name: \"Sarah\", age: 23}",
+        "C": "{name: \"Lydia\", age: 22}",
+        "D": "{name: \"Lydia\", age: 23}"
+      },
+      "answer": "C",
+      "explanation": "Функции `changeAge` и `changeAgeAndName` изменяют только копии объекта, созданные по умолчанию. Объект `person` изменяется только функцией `changeAge`, что приводит к `{name: 'Lydia', age: 22}`."
+    },
+    {
+      "id": "115",
+      "question": "Какой из следующих наборов параметров вернет `6`?",
+      "code": [
+        "function sumValues(x, y, z) {",
+        "\treturn x + y + z;",
+        "}"
+      ],
+      "options": {
+        "A": "sumValues([...1, 2, 3])",
+        "B": "sumValues([...[1, 2, 3]])",
+        "C": "sumValues(...[1, 2, 3])",
+        "D": "sumValues([1, 2, 3])"
+      },
+      "answer": "C",
+      "explanation": "Оператор распространения `...` разбивает массив на отдельные аргументы, которые передаются функции `sumValues`."
+    },
+    {
+      "id": "116",
+      "question": "Что будет на выходе?",
+      "code": [
+        "let num = 1;",
+        "const list = [\"🥳\", \"🤠\", \"🥰\", \"🤪\"];",
+        "",
+        "console.log(list[(num += 1)])"
+      ],
+      "options": {
+        "A": "🤠",
+        "B": "🥰",
+        "C": "SyntaxError",
+        "D": "ReferenceError"
+      },
+      "answer": "B",
+      "explanation": "Сначала `num` увеличивается на 1, получая значение 2. Затем `list[2]` возвращает элемент с индексом 2, что равно `'🥰'`."
+    },
+    {
+      "id": "117",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const person = {",
+        "\tfirstName: 'Lydia',",
+        "\tlastName: 'Hallie',",
+        "\tpet: {",
+        "\t\tname: 'Mara',",
+        "\t\tbreed: 'Dutch Tulip Hound'",
+        "\t},",
+        "\tgetFullName() {",
+        "\t\treturn `${this.firstName} ${this.lastName}`;",
+        "\t}",
+        "};",
+        "",
+        "console.log(person.pet?.name);",
+        "console.log(person.pet?.family?.name);",
+        "console.log(person.getFullName?.());",
+        "console.log(member.getLastName?.());"
+      ],
+      "options": {
+        "A": "undefined undefined undefined undefined",
+        "B": "Mara undefined Lydia Hallie undefined",
+        "C": "Mara null Lydia Hallie null",
+        "D": "null ReferenceError null ReferenceError"
+      },
+      "answer": "B",
+      "explanation": "Оператор `?.` возвращает `undefined`, если свойство отсутствует. `person.pet?.name` возвращает `Mara`, `person.pet?.family?.name` возвращает `undefined`, `person.getFullName?.()` возвращает `Lydia Hallie`, а `member.getLastName?.()` возвращает `undefined`."
+    },
+    {
+      "id": "118",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const groceries = ['banana', 'apple', 'peanuts'];",
+        "",
+        "if (groceries.indexOf('banana')) {",
+        "\tconsole.log('We have to buy bananas!');",
+        "} else {",
+        "\tconsole.log(`We don't have to buy bananas!`);",
+        "}"
+      ],
+      "options": {
+        "A": "We have to buy bananas!",
+        "B": "We don't have to buy bananas",
+        "C": "undefined",
+        "D": "1"
+      },
+      "answer": "B",
+      "explanation": "Метод `indexOf` возвращает `0` для первого вхождения элемента, что является ложным значением в условии `if`. Поэтому выполняется код в блок е else, который выводит We don't have to buy bananas!."
+    },
+    {
+      "id": "119",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const config = {",
+        "\tlanguages: [],",
+        "\tset language(lang) {",
+        "\t\treturn this.languages.push(lang);",
+        "\t}",
+        "};",
+        "",
+        "console.log(config.language);"
+      ],
+      "options": {
+        "A": "function language(lang) { this.languages.push(lang }",
+        "B": "0",
+        "C": "[]",
+        "D": "undefined"
+      },
+      "answer": "D",
+      "explanation": "Метод `language` является `сеттером`. Сеттеры не содержат действительного значения, их целью является изменение свойств. При вызове метода `setter` возвращается `undefined`."
+    },
+    {
+      "id": "120",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const name = 'Lydia Hallie';",
+        "",
+        "console.log(!typeof name === 'object');",
+        "console.log(!typeof name === 'string');"
+      ],
+      "options": {
+        "A": "false true",
+        "B": "true false",
+        "C": "false false",
+        "D": "true true"
+      },
+      "answer": "C",
+      "explanation": "`typeof name` возвращает `'string'`. Строка `'string'` является истинным значением, поэтому `!typeof name` возвращает логическое значение `false`. `false === 'object'` и `false === 'string'` оба возвращают `false`."
+    },
+    {
+      "id": "121",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const add = x => y => z => {",
+        "\tconsole.log(x, y, z);",
+        "\treturn x + y + z;",
+        "};",
+        "",
+        "add(4)(5)(6);"
+      ],
+      "options": {
+        "A": "4 5 6",
+        "B": "6 5 4",
+        "C": "4 function function",
+        "D": "undefined undefined 6"
+      },
+      "answer": "A",
+      "explanation": "Функция `add` возвращает стрелочную функцию, которая возвращает стрелочную функцию, которая возвращает стрелочную функцию. Первая функция получает аргумент `x` со значением `4`, вторая функция получает `y` со значением `5`, а третья функция получает `z` со значением `6`. Это возвращает `4 5 6`."
+    },
+    {
+      "id": "122",
+      "question": "Что будет на выходе?",
+      "code": [
+        "async function* range(start, end) {",
+        "\tfor (let i = start; i <= end; i++) {",
+        "\t\tyield Promise.resolve(i);",
+        "\t}",
+        "}",
+        "",
+        "(async () => {",
+        "\tconst gen = range(1, 3);",
+        "\tfor await (const item of gen) {",
+        "\t\tconsole.log(item);",
+        "\t}",
+        "})();"
+      ],
+      "options": {
+        "A": "Promise {1} Promise {2} Promise {3}",
+        "B": "Promise {<pending>} Promise {<pending>} Promise {<pending>}",
+        "C": "1 2 3",
+        "D": "undefined undefined undefined"
+      },
+      "answer": "C",
+      "explanation": "Функция генератора `range` возвращает асинхронный объект с обещаниями для каждого элемента в диапазоне. Используя цикл `for await ... of`, мы получаем значения `1`, `2`, `3` после разрешения обещаний."
+    },
+    {
+      "id": "123",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const myFunc = ({ x, y, z }) => {",
+        "\tconsole.log(x, y, z);",
+        "};",
+        "",
+        "myFunc(1, 2, 3);"
+      ],
+      "options": {
+        "A": "1 2 3",
+        "B": "{1: 1} {2: 2} {3: 3}",
+        "C": "{ 1: undefined } undefined undefined",
+        "D": "undefined undefined undefined"
+      },
+      "answer": "D",
+      "explanation": "Функция `myFunc` ожидает объект со свойствами `x`, `y` и `z`. Поскольку передаются только три отдельных числовых значения, все параметры функции будут `undefined`."
+    },
+    {
+      "id": "124",
+      "question": "Что будет на выходе?",
+      "code": [
+        "function getFine(speed, amount) {",
+        "  const formattedSpeed = new Intl.NumberFormat(",
+        "    'en-US',",
+        "    { style: 'unit', unit: 'mile-per-hour' }",
+        "  ).format(speed)",
+        "",
+        "  const formattedAmount = new Intl.NumberFormat(",
+        "    'en-US',",
+        "    { style: 'currency', currency: 'USD' }",
+        "  ).format(amount)",
+        "",
+        "  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`",
+        "}",
+        "",
+        "console.log(getFine(130, 300))"
+      ],
+      "options": {
+        "A": "The driver drove 130 and has to pay 300",
+        "B": "The driver drove 130 mph and has to pay $300.00",
+        "C": "The driver drove undefined and has to pay undefined",
+        "D": "The driver drove 130.00 and has to pay 300.00"
+      },
+      "answer": "B",
+      "explanation": "Метод `Intl.NumberFormat` используется для форматирования чисел в заданной локали. Мы форматируем `130` как `130 mph` и `300` как `$300.00`."
+    },
+    {
+      "id": "125",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const spookyItems = [\"👻\", \"🎃\", \"🕸\"];",
+        "({ item: spookyItems[3] } = { item: \"💀\" });",
+        "",
+        "console.log(spookyItems);"
+      ],
+      "options": {
+        "A": "[\"👻\", \"🎃\", \"🕸\"]",
+        "B": "[\"👻\", \"🎃\", \"🕸\", \"💀\"]",
+        "C": "[\"👻\", \"🎃\", \"🕸\", { item: \"💀\" }]",
+        "D": "[\"👻\", \"🎃\", \"🕸\", \"[object Object]\"]"
+      },
+      "answer": "B",
+      "explanation": "Деструктурирование объекта позволяет изменять значения свойств. В этом случае мы добавляем значение `💀` в массив `spookyItems`."
+    },
+    {
+      "id": "126",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const name = \"Lydia Hallie\";",
+        "const age = 21;",
+        "",
+        "console.log(Number.isNaN(name));",
+        "console.log(Number.isNaN(age));",
+        "",
+        "console.log(isNaN(name));",
+        "console.log(isNaN(age));"
+      ],
+      "options": {
+        "A": "true false true false",
+        "B": "true false false false",
+        "C": "false false true false",
+        "D": "false true false true"
+      },
+      "answer": "C",
+      "explanation": "Метод `Number.isNaN` проверяет, является ли переданное значение числом и равно ли оно `NaN`. Метод `isNaN` проверяет, является ли значение не числом. Поэтому `Number.isNaN(name)` возвращает `false`, а `isNaN(name)` возвращает `true`."
+    },
+    {
+      "id": "127",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const randomValue = 21;",
+        "",
+        "function getInfo() {",
+        "\tconsole.log(typeof randomValue);",
+        "\tconst randomValue = 'Lydia Hallie';",
+        "}",
+        "",
+        "getInfo();"
+      ],
+      "options": {
+        "A": "\"number\"",
+        "B": "\"string\"",
+        "C": "undefined",
+        "D": "ReferenceError"
+      },
+      "answer": "D",
+      "explanation": "Переменная `randomValue` объявлена внутри функции `getInfo` с помощью `const`, и она находится в 'временной мертвой зоне' до своей инициализации. Поэтому попытка доступа к `typeof randomValue` вызывает `ReferenceError`."
+    },
+    {
+      "id": "128",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const myPromise = Promise.resolve('Woah some cool data');",
+        "",
+        "(async () => {",
+        "\ttry {",
+        "\t\tconsole.log(await myPromise);",
+        "\t} catch {",
+        "\t\tthrow new Error(`Oops didn't work`);",
+        "\t} finally {",
+        "\t\tconsole.log('Oh finally!');",
+        "\t}",
+        "})();"
+      ],
+      "options": {
+        "A": "Woah some cool data",
+        "B": "Oh finally!",
+        "C": "Woah some cool data Oh finally!",
+        "D": "Oops didn't work Oh finally!"
+      },
+      "answer": "C",
+      "explanation": "В блоке `try` мы выводим значение переменной `myPromise`, что дает `Woah some cool data`. Блок `finally` всегда выполняется, поэтому также выводится `Oh finally!`."
+    },
+    {
+      "id": "129",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const emojis = ['🥑', ['✨', '✨', ['🍕', '🍕']]];",
+        "",
+        "console.log(emojis.flat(1));"
+      ],
+      "options": {
+        "A": "['🥑', ['✨', '✨', ['🍕', '🍕']]]",
+        "B": "['🥑', '✨', '✨', ['🍕', '🍕']]",
+        "C": "['🥑', ['✨', '✨', '🍕', '🍕']]",
+        "D": "['🥑', '✨', '✨', '🍕', '🍕']"
+      },
+      "answer": "B",
+      "explanation": "С помощью метода `flat` мы можем создать новый плоский массив. Глубина уплощенного массива зависит от значения, которое мы передаем. В этом случае мы передали значение `1` (которое нам не нужно, это значение по умолчанию), что означает, что будут объединены только массивы на первой глубине. `['🥑']` и `['✨', '✨', ['🍕', '🍕']]` в этом случае. Конкатенация этих двух массивов приводит к `['🥑', '✨', '✨', ['🍕', '🍕']]`."
+    },
+    {
+      "id": "130",
+      "question": "Что будет на выходе?",
+      "code": [
+        "class Counter {",
+        "  constructor() {",
+        "    this.count = 0;",
+        "  }",
+        "",
+        "  increment() {",
+        "    this.count++;",
+        "  }",
+        "}",
+        "",
+        "const counterOne = new Counter();",
+        "counterOne.increment();",
+        "counterOne.increment();",
+        "",
+        "const counterTwo = counterOne;",
+        "counterTwo.increment();",
+        "",
+        "console.log(counterOne.count);"
+      ],
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "answer": "D",
+      "explanation": "`counterOne` экземпляр класса `Counter`. Counter класс содержит метод `increment` и свойство `count` в конструкторе. Сперва, при помощи `counterOne.increment()`, мы дважды вызываем метод `increment`. `counterOne.count` становится `2`. Затем, мы создаем новую переменную `counterTwo`, и присваиваем ей `counterOne`. Поскольку объекты передаются по ссылке, мы просто создаем новую ссылку на то же место в памяти, на которое указывает `counterOne`. Поскольку переменные ссылаются на то же место в памяти, любые изменения, внесенные в объект, на который ссылается `counterTwo`, также применяются к` counterOne`. Теперь `counterTwo.count` равно `2`. Мы вызываем `counterTwo.increment()`, что устанавливает значение `count` равное `3`. Затем мы выводим в консоль значение переменной `counterOne`, которое равно `3`."
+    },
+    {
+      "id": "131",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const myPromise = Promise.resolve(Promise.resolve('Promise!'));",
+        "",
+        "function funcOne() {",
+        "  myPromise.then(res => res).then(res => console.log(res));",
+        "  setTimeout(() => console.log('Timeout!', 0));",
+        "  console.log('Last line!');",
+        "}",
+        "",
+        "async function funcTwo() {",
+        "  const res = await myPromise;",
+        "  console.log(await res);",
+        "  setTimeout(() => console.log('Timeout!', 0));",
+        "  console.log('Last line!');",
+        "}",
+        "",
+        "funcOne();",
+        "funcTwo();"
+      ],
+      "options": {
+        "A": "Promise! Last line! Promise! Last line! Last line! Promise!",
+        "B": "Last line! Timeout! Promise! Last line! Timeout! Promise!",
+        "C": "Promise! Last line! Last line! Promise! Timeout! Timeout!",
+        "D": "Last line! Promise! Promise! Last line! Timeout! Timeout!"
+      },
+      "answer": "D",
+      "explanation": "Сначала мы вызываем `funcOne`. В первой строке `funcOne` мы вызываем _асинхронную_ функцию `setTimeout`, из которой обратный вызов отправляется в веб-API. Затем мы вызываем обещание `myPromise`, которое является _асинхронной_ операцией. И обещание, и тайм-аут являются асинхронными операциями, функция продолжает работать, пока она занята выполнением обещания и обработкой обратного вызова `setTimeout`. Это означает, что `Last line 1!` регистрируется первой, так как это не асинхронная операция. Поскольку стек вызовов еще не пуст, функция `setTimeout` и обещание в `funcOne` еще не могут быть добавлены в стек вызовов. В `funcTwo` переменная `res` получает `Promise`, потому что `Promise.resolve(Promise.resolve('Promise'))` эквивалентно `Promise.resolve('Promise')`, так как разрешение обещания просто разрешает его стоимость. `await` в этой строке останавливает выполнение функции до тех пор, пока она не получит разрешение промиса, а затем продолжает работать синхронно до завершения, поэтому `Promise 2!`, а затем `Last line 2!` регистрируются, а `setTimeout` отправляется в Web API. Тогда стек вызовов пуст. Промисы — это _микрозадачи_, поэтому они решаются первыми, когда стек вызовов пуст, поэтому `Promise 1!` регистрируется. Теперь, поскольку `funcTwo` выталкивается из стека вызовов, стек вызовов пуст. Обратные вызовы, ожидающие в очереди (`() => console.log(\"Timeout 1!\")` из `funcOne`, и `() => console.log(\"Timeout 2!\")` из `funcTwo`) добавляются в стек вызовов один за другим. Первый обратный вызов регистрирует `Timeout 1!` и удаляется из стека. Затем второй обратный вызов регистрирует `Timeout 2!` и удаляется из стека."
+    },
+    {
+      "id": "132",
+      "question": "Как мы можем вызвать функцию `sum` в `sum.js` из `index.js?`",
+      "code": [
+        "// sum.js",
+        "export default function sum(x) {",
+        "  return x + x;",
+        "}",
+        "",
+        "// index.js",
+        "import * as sum from './sum';"
+      ],
+      "options": {
+        "A": "sum(4)",
+        "B": "sum.sum(4)",
+        "C": "sum.default(4)",
+        "D": "Нельзя импортировать значения по умолчанию используя `*`, только именованные экспорты"
+      },
+      "answer": "C",
+      "explanation": "Используя звездочку `*`, мы импортируем все экспортируемые значения из файла, включая именнованные экспорты и экспорты по умолчанию. Если бы у нас был следующий файл: ```javascript  // info.js export const name = 'Lydia'; export const age = 21; export default 'I love JavaScript'; // index.js import * as info from './info'; console.log(info); В лог попадёт следующее: { default: 'I love JavaScript', name: 'Lydia', age: 21 } Для примера `sum` это означает, что импортированное значение `sum` будет таким: { default: function sum(x) { return x + x } } Следовательно, мы можем вызвать эту функцию используя `sum.default`."
+    },
+    {
+      "id": "133",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const handler = {",
+        "  set: () => console.log('Added a new property!'),",
+        "  get: () => console.log('Accessed a property!'),",
+        "};",
+        "",
+        "const person = new Proxy({}, handler);",
+        "",
+        "person.name = 'Lydia';",
+        "person.name;"
+      ],
+      "options": {
+        "A": "Added a new property!",
+        "B": "Accessed a property!",
+        "C": "Added a new property! Accessed a property!",
+        "D": "В лог ничего не попадёт"
+      },
+      "answer": "C",
+      "explanation": "C помощью Proxy мы можем добавить собственное поведению объекту, которое мы передаем вторым аргументом. В нашем случае мы передаем объект `handler` который содержит свойства: `set` и `get`. `set` вызывается каждый раз когда мы _устанавливаем_ значения свойств, `get` же вызывается всякий раз когда мы _получаем_ значения свойств. Сначала мы устанавливаем новое свойство `name` для объекта Proxy (`person.name = \"Lydia\"`). Вызывается `set` и в лог попадает \"Added a new property!\". Затем мы обращаемся к значению Proxy-объекта. Вызывается свойство `get` объекта `handler`. \"Accessed a property!\" попадает в лог."
+    },
+    {
+      "id": "134",
+      "question": "Какое из перечисленных действий может модифицировать объект `person`?",
+      "code": [
+        "const person = { name: 'Lydia Hallie' };",
+        "",
+        "Object.seal(person);"
+      ],
+      "options": {
+        "A": "person.name = \"Evan Bacon\"",
+        "B": "person.age = 21",
+        "C": "delete person.name",
+        "D": "Object.assign(person, { age: 21 })"
+      },
+      "answer": "A",
+      "explanation": "С помощью `Object.seal` мы можем предотвращать как _добавление_ новых свойств, так и _удаление_ существующих. Однако, изменение существующих свойств остаётся доступным."
+    },
+    {
+      "id": "135",
+      "question": "Какое из перечисленных действий может модифицировать объект `person`?",
+      "code": [
+        "const person = {",
+        "  name: 'Lydia Hallie',",
+        "  address: {",
+        "    street: '100 Main St',",
+        "  },",
+        "};",
+        "",
+        "Object.freeze(person);"
+      ],
+      "options": {
+        "A": "person.name = \"Evan Bacon\"",
+        "B": "delete person.address",
+        "C": "person.address.street = \"101 Main St\"",
+        "D": "person.pet = { name: \"Mara\" }"
+      },
+      "answer": "C",
+      "explanation": "С помощью метода `Object.freeze` мы можем _заморозить_ объект. Свойства не могут быть добавлены, изменены или удалены. Однако, это _неглубоко_ замораживает объект. Замораживаются только _непосредственные_ свойства объекта. Если свойством является другой объект(в нашем примере `address`), свойства этого объекта не замораживаются и могут быть изменены."
+    },
+    {
+      "id": "136",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const add = x => x + x;",
+        "",
+        "function myFunc(num = 2, value = add(num)) {",
+        "  console.log(num, value);",
+        "}",
+        "",
+        "myFunc();",
+        "myFunc(3);"
+      ],
+      "options": {
+        "A": "2 4 и 3 6",
+        "B": "2 NaN и 3 NaN",
+        "C": "2 Error и 3 6",
+        "D": "2 4 и 3 Error"
+      },
+      "answer": "A",
+      "explanation": "Во-первых, мы вызваем `myFunc()` без передачи каких-либо аргументов. Поскольку мы не передаем аргументы, `num` и `value` получают свои значения по умолчанию: `num` равно `2`, а `value` возвращаемое значение функции `add`. В функцию `add` мы передаем в качестве аргумента `num` со значением `2`. `add` возвращает `4`, что является значением `value`. Затем мы вызваем `myFunc(3)` и передаем значение `3` в качестве значения аргумента `num`. Мы не передаем аргумент для `value`. Поскольку мы не передаем значение для аргумента `value`, он получаеи значение по умолчанию: возвращаемое значение функции `add`. В `add` мы передаем `num`, значение которого равно `3`. `add` возвращает `6`, что является значением `value`."
+    },
+    {
+      "id": "137",
+      "question": "Что будет на выходе?",
+      "code": [
+        "class Counter {",
+        "  #number = 10",
+        "",
+        "  increment() {",
+        "    this.#number++",
+        "  }",
+        "",
+        "  getNum() {",
+        "    return this.#number",
+        "  }",
+        "}",
+        "",
+        "const counter = new Counter()",
+        "counter.increment()",
+        "",
+        "console.log(counter.#number)"
+      ],
+      "options": {
+        "A": "10",
+        "B": "11",
+        "C": "undefined",
+        "D": "SyntaxError"
+      },
+      "answer": "D",
+      "explanation": "В ES2020 мы можем добавлять приватные переменные в классы с помощью символа `#`. Мы не можем получить доступ к этим переменным вне класса. Когда мы пытаемся записать `counter.#number`, выдается `SyntaxError`: мы не можем получить доступ вне класса `Counter`!"
+    },
+    {
+      "id": "138",
+      "question": "В каком случае не будет ошибки?",
+      "code": [
+        "const teams = [",
+        "  { name: 'Team 1', members: ['Paul', 'Lisa'] },",
+        "  { name: 'Team 2', members: ['Laura', 'Tim'] },",
+        "];",
+        "",
+        "function* getMembers(members) {",
+        "  for (let i = 0; i < members.length; i++) {",
+        "    yield members[i];",
+        "  }",
+        "}",
+        "",
+        "function* getTeams(teams) {",
+        "  for (let i = 0; i < teams.length; i++) {",
+        "    // ✨ SOMETHING IS MISSING HERE ✨",
+        "  }",
+        "}",
+        "",
+        "const obj = getTeams(teams);",
+        "obj.next(); // { value: \"Paul\", done: false }",
+        "obj.next(); // { value: \"Lisa\", done: false }"
+      ],
+      "options": {
+        "A": "yield getMembers(teams[i].members)",
+        "B": "yield* getMembers(teams[i].members)",
+        "C": "return getMembers(teams[i].members)",
+        "D": "return yield getMembers(teams[i].members)"
+      },
+      "answer": "B",
+      "explanation": "Чтобы выполнить итерацию по `members` в каждом элементе массива `teams`, нам нужно передать `teams[i].members` в функцию генератора `getMembers`. Функция генератора возвращает объект генератора. Чтобы перебрать каждый элемент в этом объекте-генераторе, нам нужно использовать `yield*`. Если бы мы написали `yield`, `return yield` или `return`, вся функция генератора была бы возвращена при первом вызове метода `next`."
+    },
+    {
+      "id": "139",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const person = {",
+        "  name: 'Lydia Hallie',",
+        "  hobbies: ['coding'],",
+        "};",
+        "",
+        "function addHobby(hobby, hobbies = person.hobbies) {",
+        "  hobbies.push(hobby);",
+        "  return hobbies;",
+        "}",
+        "",
+        "addHobby('running', []);",
+        "addHobby('dancing');",
+        "addHobby('baking', person.hobbies);",
+        "",
+        "console.log(person.hobbies);"
+      ],
+      "options": {
+        "A": "[\"coding\"]",
+        "B": "[\"coding\", \"dancing\"]",
+        "C": "[\"coding\", \"dancing\", \"baking\"]",
+        "D": "[\"coding\", \"running\", \"dancing\", \"baking\"]"
+      },
+      "answer": "C",
+      "explanation": "Функция `addHobby` получает два аргумента, `hobby` и `hobbies`, со значением по умолчанию массива `hobbies` в объекте `person`. Сначала мы добавляем `running` в новый пустой массив, что не влияет на `person.hobbies`. Затем добавляем `dancing` в `person.hobbies`, и наконец, добавляем `baking` в тот же массив. В итоге `person.hobbies` содержит `['coding', 'dancing', 'baking']`."
+    },
+    {
+      "id": "140",
+      "question": "Что будет на выходе?",
+      "code": [
+        "class Bird {",
+        "  constructor() {",
+        "    console.log(\"I'm a bird. 🦢\");",
+        "  }",
+        "}",
+        "",
+        "class Flamingo extends Bird {",
+        "  constructor() {",
+        "    console.log(\"I'm pink. 🌸\");",
+        "    super();",
+        "  }",
+        "}",
+        "",
+        "const pet = new Flamingo();"
+      ],
+      "options": {
+        "A": "I'm pink. 🌸",
+        "B": "I'm pink. 🌸 I'm a bird. 🦢",
+        "C": "I'm a bird. 🦢 I'm pink. 🌸",
+        "D": "Nothing, we didn't call any method"
+      },
+      "answer": "B",
+      "explanation": "Когда создается экземпляр `Flamingo`, сначала выполняется `console.log` в `Flamingo`, выводя \"I'm pink. 🌸\", затем вызывается `super()`, который вызывает конструктор родительского класса `Bird`, выводя \"I'm a bird. 🦢\"."
+    },
+    {
+      "id": "141",
+      "question": "Какой/какие из вариантов приведет к ошибке?",
+      "code": [
+        "const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];",
+        "",
+        "/* 1 */ emojis.push('🦌');",
+        "/* 2 */ emojis.splice(0, 2);",
+        "/* 3 */ emojis = [...emojis, '🥂'];",
+        "/* 4 */ emojis.length = 0;"
+      ],
+      "options": {
+        "A": "1",
+        "B": "1 и 2",
+        "C": "3 и 4",
+        "D": "3"
+      },
+      "answer": "D",
+      "explanation": "Переменная `emojis` объявлена с использованием `const`, что означает, что мы не можем переназначить её значение. Поэтому попытка выполнить `emojis = [...emojis, '🥂']` приведет к ошибке. Изменения содержимого массива, такие как `push`, `splice` и изменение длины массива, допустимы."
+    },
+    {
+      "id": "142",
+      "question": "Что нам нужно добавить к объекту `person`, чтобы получить `['Lydia Hallie', 21]` в качестве вывода `[...person]`?",
+      "code": [
+        "const person = {",
+        "  name: \"Lydia Hallie\",",
+        "  age: 21",
+        "}",
+        "",
+        "[...person] // ['Lydia Hallie', 21]"
+      ],
+      "options": {
+        "A": "Ничего, объекты итерируется по умолчанию",
+        "B": "*[Symbol.iterator]() { for (let x in this) yield* this[x] }",
+        "C": "*[Symbol.iterator]() { yield* Object.values(this) }",
+        "D": "*[Symbol.iterator]() { for (let x in this) yield this }"
+      },
+      "answer": "C",
+      "explanation": "Чтобы сделать объект итерируемым, необходимо добавить символ итератора `[Symbol.iterator]`, который возвращает объект-генератор. Метод `*[Symbol.iterator]() { yield* Object.values(this) }` позволяет итерировать по значениям объекта `person` и получить массив `['Lydia Hallie', 21]`."
+    },
+    {
+      "id": "143",
+      "question": "Что будет на выходе?",
+      "code": [
+        "let count = 0;",
+        "const nums = [0, 1, 2, 3];",
+        "",
+        "nums.forEach(num => {",
+        "\tif (num) count += 1",
+        "})",
+        "",
+        "console.log(count)"
+      ],
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "answer": "C",
+      "explanation": "Метод `forEach` перебирает элементы массива, и условие `if (num)` проверяет, является ли значение `num` истинным. Поскольку `0` является ложным, он не учитывается. Поэтому значение `count` увеличивается для `1`, `2` и `3`, что дает результат `3`."
+    },
+    {
+      "id": "144",
+      "question": "Что будет на выходе?",
+      "code": [
+        "function getFruit(fruits) {",
+        "\tconsole.log(fruits?.[1]?.[1])",
+        "}",
+        "",
+        "getFruit([['🍊', '🍌'], ['🍍']])",
+        "getFruit()",
+        "getFruit([['🍍'], ['🍊', '🍌']])"
+      ],
+      "options": {
+        "A": "null, undefined, 🍌",
+        "B": "[], null, 🍌",
+        "C": "[], [], 🍌",
+        "D": "undefined, undefined, 🍌"
+      },
+      "answer": "D",
+      "explanation": "Оператор опциональной последовательности `?.` позволяет безопасно получать доступ к вложенным свойствам. Если `fruits` или элемент `fruits[1]` не существует, результатом будет `undefined`. В последнем случае элемент `fruits[1][1]` существует и равен `🍌`."
+    },
+    {
+      "id": "145",
+      "question": "Что будет на выходе?",
+      "code": [
+        "class Calc {",
+        "\tconstructor() {",
+        "\t\tthis.count = 0",
+        "\t}",
+        "",
+        "\tincrease() {",
+        "\t\tthis.count++",
+        "\t}",
+        "}",
+        "",
+        "const calc = new Calc()",
+        "new Calc().increase()",
+        "",
+        "console.log(calc.count)"
+      ],
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "undefined",
+        "D": "ReferenceError"
+      },
+      "answer": "A",
+      "explanation": "Создается экземпляр `Calc`, у которого значение `count` инициализируется как `0`. Затем создается новый экземпляр `Calc` и вызывается метод `increase` для этого нового экземпляра, который увеличивает его `count`. Поскольку это новый экземпляр, `count` в исходном экземпляре `calc` остается равным `0`."
+    },
+    {
+      "id": "146",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const user = {",
+        "\temail: \"e@mail.com\",",
+        "\tpassword: \"12345\"",
+        "}",
+        "",
+        "const updateUser = ({ email, password }) => {",
+        "\tif (email) {",
+        "\t\tObject.assign(user, { email })",
+        "\t}",
+        "",
+        "\tif (password) {",
+        "\t\tuser.password = password",
+        "\t}",
+        "",
+        "\treturn user",
+        "}",
+        "",
+        "const updatedUser = updateUser({ email: \"new@email.com\" })",
+        "",
+        "console.log(updatedUser === user)"
+      ],
+      "options": {
+        "A": "false",
+        "B": "true",
+        "C": "TypeError",
+        "D": "ReferenceError"
+      },
+      "answer": "B",
+      "explanation": "Функция `updateUser` обновляет свойства `email` и `password` у объекта `user`, если значения переданы. Поскольку функция возвращает объект `user`, `updatedUser` будет ссылаться на тот же объект. Поэтому `updatedUser === user` возвращает `true`."
+    },
+    {
+      "id": "147",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const fruit = ['🍌', '🍊', '🍎']",
+        "",
+        "fruit.slice(0, 1)",
+        "fruit.splice(0, 1)",
+        "fruit.unshift('🍇')",
+        "",
+        "console.log(fruit)"
+      ],
+      "options": {
+        "A": "['🍌', '🍊', '🍎']",
+        "B": "['🍊', '🍎']",
+        "C": "['🍇', '🍊', '🍎']",
+        "D": "['🍇', '🍌', '🍊', '🍎']"
+      },
+      "answer": "C",
+      "explanation": "Метод `slice` создает новый массив, не изменяя исходный, поэтому это не влияет на `fruit`. Метод `splice` изменяет массив `fruit`, удаляя первый элемент. Метод `unshift` добавляет `🍇` в начало массива. В итоге массив становится `['🍇', '🍊', '🍎']`."
+    },
+    {
+      "id": "148",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const animals = {};",
+        "let dog = { emoji: '🐶' }",
+        "let cat = { emoji: '🐈' }",
+        "",
+        "animals[dog] = { ...dog, name: \"Mara\" }",
+        "animals[cat] = { ...cat, name: \"Sara\" }",
+        "",
+        "console.log(animals[dog])"
+      ],
+      "options": {
+        "A": "{ emoji: \"🐶\", name: \"Mara\" }",
+        "B": "{ emoji: \"🐈\", name: \"Sara\" }",
+        "C": "undefined",
+        "D": "ReferenceError"
+      },
+      "answer": "B",
+      "explanation": "Ключи объекта преобразуются в строки. Объекты `dog` и `cat` преобразуются в строку \"[object Object]\". Когда мы устанавливаем `animals[dog]`, это фактически означает `animals['[object Object]']`. Последующее присваивание `animals[cat]` перезаписывает предыдущее значение по тому же ключу, что и `cat`. Поэтому `animals[dog]` возвращает объект `{ emoji: '🐈', name: 'Sara' }`."
+    },
+    {
+      "id": "149",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const user = {",
+        "\temail: \"my@email.com\",",
+        "\tupdateEmail: email => {",
+        "\t\tthis.email = email",
+        "\t}",
+        "}",
+        "",
+        "user.updateEmail(\"new@email.com\")",
+        "console.log(user.email)"
+      ],
+      "options": {
+        "A": "my@email.com",
+        "B": "new@email.com",
+        "C": "undefined",
+        "D": "ReferenceError"
+      },
+      "answer": "A",
+      "explanation": "Стрелочные функции не имеют собственного `this`. В функции `updateEmail` `this` относится к глобальной области видимости, а не к объекту `user`. Поэтому свойство `email` объекта `user` не изменяется, и результатом является исходное значение `my@email.com`."
+    },
+    {
+      "id": "150",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const promise1 = Promise.resolve('First')",
+        "const promise2 = Promise.resolve('Second')",
+        "const promise3 = Promise.reject('Third')",
+        "const promise4 = Promise.resolve('Fourth')",
+        "",
+        "const runPromises = async () => {",
+        "\tconst res1 = await Promise.all([promise1, promise2])",
+        "\tconst res2  = await Promise.all([promise3, promise4])",
+        "\treturn [res1, res2]",
+        "}",
+        "",
+        "runPromises()",
+        "\t.then(res => console.log(res))",
+        "\t.catch(err => console.log(err))"
+      ],
+      "options": {
+        "A": "'[['First', 'Second'], ['Fourth']]'",
+        "B": "'[['First', 'Second'], ['Third', 'Fourth']]'",
+        "C": "'[['First', 'Second']]'",
+        "D": "'Third'"
+      },
+      "answer": "D",
+      "explanation": "Метод `Promise.all` выполняет переданные промисы параллельно. Если одно обещание отклоняется, метод `Promise.all` отклоняется со значением отклоненного обещания. В этом случае `promise3` отклонен со значением 'Third'. Мы перехватываем отклоненное значение в методе `catch`, поэтому выводится только 'Third'."
+    },
+    {
+      "id": "151",
+      "question": "Каким должно быть значение `method` для регистрации `{ name: 'Lydia', age: 22 }`?",
+      "code": [
+        "const keys = ['name', 'age']",
+        "const values = ['Lydia', 22]",
+        "",
+        "const method = /* ?? */",
+        "Object[method](keys.map((_, i) => {",
+        "\treturn [keys[i], values[i]]",
+        "})) // { name: 'Lydia', age: 22 }"
+      ],
+      "options": {
+        "A": "entries",
+        "B": "values",
+        "C": "fromEntries",
+        "D": "forEach"
+      },
+      "answer": "C",
+      "explanation": "Метод `fromEntries` преобразует двумерный массив в объект. В этом случае массив подмассивов, где первый элемент является ключом, а второй элемент является значением, создается из массивов `keys` и `values`. `Object.fromEntries` преобразует это в `{ name: 'Lydia', age: 22 }`."
+    },
+    {
+      "id": "152",
+      "question": "Что будет на выходе?",
+      "code": [
+        "const createMember = ({ email, address = {} }) => {",
+        "\tconst validEmail = /.+\\@.+\\..+/.test(email)",
+        "\tif (!validEmail) throw new Error('Valid email pls')",
+        "",
+        "\treturn {",
+        "\t\temail,",
+        "\t\taddress: address ? address : null",
+        "\t}",
+        "}",
+        "",
+        "const member = createMember({ email: 'my@email.com' })",
+        "console.log(member)"
+      ],
+      "options": {
+        "A": "{ email: 'my@email.com', address: null }",
+        "B": "{ email: 'my@email.com' }",
+        "C": "{ email: 'my@email.com', address: {} }",
+        "D": "{ email: 'my@email.com', address: undefined }"
+      },
+      "answer": "C",
+      "explanation": "Значение по умолчанию для `address` – пустой объект `{}`. Поскольку значение `address` не передано, оно остается `{}`. Условие `address ? address : null` возвращает пустой объект `{}`, так как пустой объект является истинным значением."
+    },
+    {
+      "id": "153",
+      "question": "Что будет на выходе?",
+      "code": [
+        "let randomValue = { name: 'Lydia' }",
+        "randomValue = 23",
+        "",
+        "if (!typeof randomValue === 'string') {",
+        "\tconsole.log(\"It's not a string!\")",
+        "} else {",
+        "\tconsole.log(\"Yay it's a string!\")",
+        "}"
+      ],
+      "options": {
+        "A": "'It's not a string!'",
+        "B": "'Yay it's a string!'",
+        "C": "TypeError",
+        "D": "undefined"
+      },
+      "answer": "A",
+      "explanation": "Условие в `if` проверяет `!typeof randomValue === 'string'`. `typeof randomValue` возвращает 'number', так как `randomValue` присвоено числовое значение `23`. Логическое отрицание `!typeof randomValue` преобразует 'number' в `false`. Поскольку `false === 'string'` – это `false`, блок `else` не выполняется, и в консоль выводится 'It's not a string!'."
     }
-]
+  ]

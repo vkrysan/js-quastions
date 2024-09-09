@@ -3,7 +3,9 @@ import DataContext from '../context/dataContext';
 
 const Quiz = () => {
     const { showQuiz, question, quizs, checkAnswer, correctAnswer,
-            selectedAnswer,questionIndex, nextQuestion, showTheResult }  = useContext(DataContext);
+            selectedAnswer,questionIndex, nextQuestion, showTheResult, showCorrectAnswer }  = useContext(DataContext);
+            
+            
 
     return (
         <section className="bg-dark text-white" style={{ display: `${showQuiz ? 'block' : 'none'}` }}>
@@ -16,6 +18,12 @@ const Quiz = () => {
                                 <h5 style={{ color: '#60d600', width: '100px', textAlign: 'right' }}>{quizs.indexOf(question) + 1} / {quizs?.length}</h5>
                             </div>
                             <div>
+                                <p className='mt-3'>{question?.info}</p>
+                            </div>
+                            <p style={{ color: '#60d600', width: '300px' }}>
+                            {question?.code && <p>{question?.code.map((item, index) => <p key={index}>{item}</p>)}</p>}
+                            </p>
+                            <div>
                                 {
                                     question?.options?.map((item, index) => <button
                                         key={index}
@@ -26,6 +34,9 @@ const Quiz = () => {
                                     </button>)
                                 }
                             </div>
+                                {correctAnswer && <h3 className='mt-3 text-success'>{correctAnswer}</h3>}
+                                {correctAnswer && <div>{showCorrectAnswer}</div>}
+                            
 
                             {
                                 (questionIndex + 1) !== quizs.length ?

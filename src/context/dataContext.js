@@ -10,6 +10,7 @@ export const DataProvider = ({children}) => {
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [marks, setMarks] = useState(0);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState('');
 
   // Display Controlling States
   const [showStart, setShowStart] = useState(true);
@@ -41,6 +42,7 @@ export const DataProvider = ({children}) => {
     if (!selectedAnswer) {
       setCorrectAnswer(question.answer);
       setSelectedAnswer(selected);
+      setShowCorrectAnswer(question.desc)
 
       if (selected === question.answer) {
         event.target.classList.add('bg-success');
@@ -54,6 +56,7 @@ export const DataProvider = ({children}) => {
   // Next Quesion
   const nextQuestion = () => {
     setCorrectAnswer('');
+    setShowCorrectAnswer('')
     setSelectedAnswer('');
     const wrongBtn = document.querySelector('button.bg-danger');
     wrongBtn?.classList.remove('bg-danger');
@@ -77,6 +80,7 @@ export const DataProvider = ({children}) => {
     setCorrectAnswer('');
     setSelectedAnswer('');
     setQuestionIndex(0);
+    setShowCorrectAnswer('')
     setMarks(0);
     const wrongBtn = document.querySelector('button.bg-danger');
     wrongBtn?.classList.remove('bg-danger');
@@ -87,7 +91,7 @@ export const DataProvider = ({children}) => {
         <DataContext.Provider value={{
             startQuiz,showStart,showQuiz,question,quizs,checkAnswer,correctAnswer,
             selectedAnswer,questionIndex,nextQuestion,showTheResult,showResult,marks,
-            startOver
+            startOver, showCorrectAnswer
         }} >
             {children}
         </DataContext.Provider>
