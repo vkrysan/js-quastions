@@ -5,7 +5,8 @@ const Quiz = () => {
     const { showQuiz, question, quizs, checkAnswer, correctAnswer,
             selectedAnswer,questionIndex, nextQuestion, showTheResult, showCorrectAnswer }  = useContext(DataContext);
             
-            
+    console.log(question);
+    
 
     return (
         <section className="bg-dark text-white" style={{ display: `${showQuiz ? 'block' : 'none'}` }}>
