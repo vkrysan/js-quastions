@@ -1,1 +1,1 @@
-<h1>Топ 150 вопросов по JavaScript</h1>
+<h1>Топ 150 вопросов по JavaScript - on React JS</h1>
